@@ -3,7 +3,7 @@ let pathPrefix = "./";
 const path = window.location.pathname;
 if (path.includes('/academic-information/') || path.includes('/performance/')) {
     pathPrefix = "../../";
-} else if (path.includes('/academic/') || path.includes('/cdc/') || path.includes('/accommodation/') || path.includes('/accounts/')) {
+} else if (path.includes('/academic/') || path.includes('/cdc/') || path.includes('/accommodation/') || path.includes('/accounts/') || path.includes('/dashboard/')) {
     pathPrefix = "../";
 }
 
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
         sidebarPlaceholder.outerHTML = `
         <aside class="sidebar">
             <div class="sidebar-header">
-                <a href="${pathPrefix}dashboard.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 10px;">
+                <a href="${pathPrefix}dashboard/index.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 10px;">
                     <img src="${pathPrefix}iitkgp logo.png" alt="IIT KGP Logo" class="sidebar-logo">
                     <h2>IITKGP ERP</h2>
                 </a>
@@ -593,7 +593,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (searchInput && searchResults) {
             const pages = [
-                { title: 'Dashboard', url: 'dashboard.html', desc: 'Main ERP home page' },
+                { title: 'Dashboard', url: 'dashboard/index.html', desc: 'Main ERP home page' },
                 { title: 'Academic Information', url: 'academic/academic-information/', desc: 'Student profile and documents' },
                 { title: 'Performance Record', url: 'academic/performance/', desc: 'Semester grades and curricula' },
                 { title: 'Registration & Academics', url: 'academic/index.html', desc: 'UG/PG Modules and Time Table' },

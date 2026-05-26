@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Academic Module - ERP KGP</title>
+    <link rel="icon" type="image/png" href="../iitkgp logo.png">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -17,7 +18,7 @@
         <!-- Sidebar -->
         <aside class="sidebar">
             <div class="sidebar-header">
-                <i class="fa-solid fa-graduation-cap" style="font-size: 32px; color: #a397ff;"></i>
+                <img src="../iitkgp logo.png" alt="IIT KGP Logo" class="sidebar-logo">
                 <h2>IITKGP ERP</h2>
                 <button class="close-btn" id="closeSidebar" aria-label="Close sidebar">
                     <i class="fa-solid fa-xmark"></i>
@@ -66,7 +67,7 @@
                     </div>
                 </div>
 
-                <a href="#" class="menu-item">
+                <a href="../accounts/index.html" class="menu-item">
                     <i class="fa-solid fa-file-invoice-dollar"></i>
                     <span>Accounts</span>
                 </a>
@@ -139,23 +140,179 @@
             <div class="content-area">
                 <div class="hero-banner">
                     <div class="hero-text">
-                        <h1>Time Tables & Exams 📅</h1>
-                        <p>Manage your academic schedule and view examination details.</p>
+                        <h1>Academic Module</h1>
+                        <p>Track your grades, registered subjects, class time table, and examination schedules.</p>
                     </div>
                 </div>
 
                 <div class="bento-grid">
-                    <!-- Schedule Card -->
-                    <div class="card glass-panel col-span-6">
+                    
+                    <!-- Stats Card (CGPA Tracker) -->
+                    <div class="card glass-panel col-span-4">
                         <div class="card-header">
                             <h3 class="card-title">
-                                <span class="card-icon"><i class="fa-solid fa-calendar-check"></i></span>
-                                My Time Table (Student)
+                                <span class="card-icon"><i class="fa-solid fa-chart-line"></i></span>
+                                Academic Performance
+                            </h3>
+                        </div>
+                        <div class="stats-container" style="margin-bottom: 20px;">
+                            <div class="stat-box">
+                                <span class="stat-value">9.15</span>
+                                <span class="stat-label">CGPA</span>
+                            </div>
+                            <div class="stat-box">
+                                <span class="stat-value">22</span>
+                                <span class="stat-label">Registered Credits</span>
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table style="width:100%; border-collapse:collapse; text-align:left; font-size:12px;">
+                                <thead>
+                                    <tr style="border-bottom:1px solid var(--border-color); color:var(--text-muted)">
+                                        <th style="padding:8px 4px;">Semester</th>
+                                        <th style="padding:8px 4px;">SGPA</th>
+                                        <th style="padding:8px 4px;">Credits</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr style="border-bottom:1px solid var(--border-color)">
+                                        <td style="padding:8px 4px; font-weight:600;">Semester 1</td>
+                                        <td style="padding:8px 4px; color:var(--brand-primary); font-weight:700;">8.90</td>
+                                        <td style="padding:8px 4px;">20</td>
+                                    </tr>
+                                    <tr style="border-bottom:1px solid var(--border-color)">
+                                        <td style="padding:8px 4px; font-weight:600;">Semester 2</td>
+                                        <td style="padding:8px 4px; color:var(--brand-primary); font-weight:700;">9.20</td>
+                                        <td style="padding:8px 4px;">22</td>
+                                    </tr>
+                                    <tr style="border-bottom:1px solid var(--border-color)">
+                                        <td style="padding:8px 4px; font-weight:600;">Semester 3</td>
+                                        <td style="padding:8px 4px; color:var(--brand-primary); font-weight:700;">9.35</td>
+                                        <td style="padding:8px 4px;">20</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Registered Subjects Card -->
+                    <div class="card glass-panel col-span-8">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <span class="card-icon"><i class="fa-solid fa-list-check"></i></span>
+                                Current Semester Registered Courses
+                            </h3>
+                        </div>
+                        <div class="table-responsive">
+                            <table style="width:100%; border-collapse:collapse; text-align:left; font-size:13px;">
+                                <thead>
+                                    <tr style="border-bottom:1px solid var(--border-color); color:var(--text-muted)">
+                                        <th style="padding:10px 8px;">Code</th>
+                                        <th style="padding:10px 8px;">Course Title</th>
+                                        <th style="padding:10px 8px;">Credits</th>
+                                        <th style="padding:10px 8px;">Slot</th>
+                                        <th style="padding:10px 8px;">Faculty</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr style="border-bottom:1px solid var(--border-color)">
+                                        <td style="padding:10px 8px; font-weight:600; color:var(--brand-primary);">CS30001</td>
+                                        <td style="padding:10px 8px;">Computer Networks</td>
+                                        <td style="padding:10px 8px;">4</td>
+                                        <td style="padding:10px 8px; font-weight:600;">C</td>
+                                        <td style="padding:10px 8px;">Dr. Amit Kumar</td>
+                                    </tr>
+                                    <tr style="border-bottom:1px solid var(--border-color)">
+                                        <td style="padding:10px 8px; font-weight:600; color:var(--brand-primary);">CS30003</td>
+                                        <td style="padding:10px 8px;">Database Management Systems</td>
+                                        <td style="padding:10px 8px;">4</td>
+                                        <td style="padding:10px 8px; font-weight:600;">F</td>
+                                        <td style="padding:10px 8px;">Dr. Priya Sen</td>
+                                    </tr>
+                                    <tr style="border-bottom:1px solid var(--border-color)">
+                                        <td style="padding:10px 8px; font-weight:600; color:var(--brand-primary);">CS30005</td>
+                                        <td style="padding:10px 8px;">Compilers</td>
+                                        <td style="padding:10px 8px;">4</td>
+                                        <td style="padding:10px 8px; font-weight:600;">A</td>
+                                        <td style="padding:10px 8px;">Dr. Rajib Mall</td>
+                                    </tr>
+                                    <tr style="border-bottom:1px solid var(--border-color)">
+                                        <td style="padding:10px 8px; font-weight:600; color:var(--brand-primary);">CS31001</td>
+                                        <td style="padding:10px 8px;">Network Lab</td>
+                                        <td style="padding:10px 8px;">2</td>
+                                        <td style="padding:10px 8px; font-weight:600;">X</td>
+                                        <td style="padding:10px 8px;">Dr. Amit Kumar</td>
+                                    </tr>
+                                    <tr style="border-bottom:1px solid var(--border-color)">
+                                        <td style="padding:10px 8px; font-weight:600; color:var(--brand-primary);">CS31003</td>
+                                        <td style="padding:10px 8px;">DBMS Lab</td>
+                                        <td style="padding:10px 8px;">2</td>
+                                        <td style="padding:10px 8px; font-weight:600;">Y</td>
+                                        <td style="padding:10px 8px;">Dr. Priya Sen</td>
+                                    </tr>
+                                    <tr style="border-bottom:1px solid var(--border-color)">
+                                        <td style="padding:10px 8px; font-weight:600; color:var(--brand-primary);">HS30001</td>
+                                        <td style="padding:10px 8px;">Economics</td>
+                                        <td style="padding:10px 8px;">3</td>
+                                        <td style="padding:10px 8px; font-weight:600;">H</td>
+                                        <td style="padding:10px 8px;">Dr. S. K. Roy</td>
+                                    </tr>
+                                    <tr style="border-bottom:1px solid var(--border-color)">
+                                        <td style="padding:10px 8px; font-weight:600; color:var(--brand-primary);">EA30001</td>
+                                        <td style="padding:10px 8px;">Extra Academic Activity</td>
+                                        <td style="padding:10px 8px;">3</td>
+                                        <td style="padding:10px 8px; font-weight:600;">E</td>
+                                        <td style="padding:10px 8px;">Dr. S. Patra</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Daily Lecture Schedule Card -->
+                    <div class="card glass-panel col-span-4">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <span class="card-icon"><i class="fa-solid fa-clock"></i></span>
+                                Today's Schedule
+                            </h3>
+                        </div>
+                        <div class="link-list" style="gap:8px;">
+                            <div style="display:flex; align-items:center; justify-content:space-between; padding:10px 12px; background:var(--brand-bg); border-radius:8px; border:1px solid var(--border-color); font-size:13px;">
+                                <div>
+                                    <strong style="display:block;">CS30001 - Networks</strong>
+                                    <span style="color:var(--text-muted); font-size:11px;">Venue: Nalanda Room 102</span>
+                                </div>
+                                <span style="font-weight:700; color:var(--brand-primary);">08:00 - 09:00</span>
+                            </div>
+                            <div style="display:flex; align-items:center; justify-content:space-between; padding:10px 12px; background:var(--brand-bg); border-radius:8px; border:1px solid var(--border-color); font-size:13px;">
+                                <div>
+                                    <strong style="display:block;">CS30003 - DBMS</strong>
+                                    <span style="color:var(--text-muted); font-size:11px;">Venue: Nalanda Room 102</span>
+                                </div>
+                                <span style="font-weight:700; color:var(--brand-primary);">10:00 - 11:00</span>
+                            </div>
+                            <div style="display:flex; align-items:center; justify-content:space-between; padding:10px 12px; background:var(--brand-bg); border-radius:8px; border:1px solid var(--border-color); font-size:13px;">
+                                <div>
+                                    <strong style="display:block;">CS31001 - Networks Lab</strong>
+                                    <span style="color:var(--text-muted); font-size:11px;">Venue: Computer Centre Lab 2</span>
+                                </div>
+                                <span style="font-weight:700; color:var(--brand-primary);">14:30 - 17:30</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Time Table Card -->
+                    <div class="card glass-panel col-span-4">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <span class="card-icon"><i class="fa-solid fa-calendar-days"></i></span>
+                                Time Tables
                             </h3>
                         </div>
                         <div class="link-list">
                             <a href="#" class="link-item">
-                                <i class="fa-solid fa-clock"></i> Subject List With TimeTable Slots
+                                <i class="fa-solid fa-clock"></i> Subject List & Slots
                             </a>
                             <a href="#" class="link-item">
                                 <i class="fa-solid fa-calendar-day"></i> Central TimeTable AUTUMN
@@ -167,13 +324,13 @@
                                 <i class="fa-solid fa-sun"></i> Summer Quarter Time Table
                             </a>
                             <a href="#" class="link-item">
-                                <i class="fa-solid fa-building"></i> TimeTable (Department Wise)
+                                <i class="fa-solid fa-building"></i> TimeTable (Dept. Wise)
                             </a>
                         </div>
                     </div>
 
                     <!-- Exams Card -->
-                    <div class="card glass-panel col-span-6">
+                    <div class="card glass-panel col-span-4">
                         <div class="card-header">
                             <h3 class="card-title">
                                 <span class="card-icon"><i class="fa-solid fa-pen-to-square"></i></span>
@@ -182,22 +339,23 @@
                         </div>
                         <div class="link-list">
                             <a href="#" class="link-item">
-                                <i class="fa-solid fa-triangle-exclamation" style="color:var(--accent-pink)"></i> Very Important Exam Instructions
+                                <i class="fa-solid fa-triangle-exclamation" style="color:var(--accent-red)"></i> Important Exam Instructions
                             </a>
                             <a href="#" class="link-item">
-                                <i class="fa-solid fa-list-check"></i> Complete Examination Instructions
+                                <i class="fa-solid fa-list-check"></i> Complete Instructions
                             </a>
                             <a href="#" class="link-item">
-                                <i class="fa-solid fa-calendar-days"></i> Central Examination TimeTable
+                                <i class="fa-solid fa-calendar-days"></i> Central Exam TimeTable
                             </a>
                             <a href="#" class="link-item">
-                                <i class="fa-solid fa-building-columns"></i> Departmental Examination Timetable
+                                <i class="fa-solid fa-building-columns"></i> Dept. Exam Timetable
                             </a>
                             <a href="#" class="link-item">
                                 <i class="fa-solid fa-graduation-cap"></i> Results Review (UG)
                             </a>
                         </div>
                     </div>
+
                 </div>
             </div>
 

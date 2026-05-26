@@ -632,7 +632,47 @@ body {
         gap: 16px;
         padding: 24px;
     }
+
+    .top-nav {
+        padding: 0 16px;
+        height: 60px;
+    }
+
+    .profile-btn span {
+        display: none; /* Hide profile name on mobile screens */
+    }
+
+    .nav-actions {
+        gap: 10px;
+    }
+
+    .content-area {
+        padding: 16px;
+    }
+
+    .card {
+        padding: 16px;
+    }
+
+    .stats-container {
+        grid-template-columns: 1fr; /* Stack stats vertically on mobile */
+    }
 }
+
+/* Sidebar Logo */
+.sidebar-logo {
+    height: 32px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* Table wrapper for horizontal scroll */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
 
 .card-header {
     display: flex;

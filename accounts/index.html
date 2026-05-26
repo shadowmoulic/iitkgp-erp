@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CDC Portal - ERP KGP</title>
+    <title>Accounts & Financials - ERP KGP</title>
     <link rel="icon" type="image/png" href="../iitkgp logo.png">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -61,7 +61,7 @@
                     </div>
                 </div>
 
-                <a href="../accounts/index.html" class="menu-item">
+                <a href="./index.html" class="menu-item active">
                     <i class="fa-solid fa-file-invoice-dollar"></i>
                     <span>Accounts</span>
                 </a>
@@ -69,7 +69,7 @@
                     <i class="fa-solid fa-hotel"></i>
                     <span>Guest House</span>
                 </a>
-                <a href="./index.html" class="menu-item active">
+                <a href="../cdc/index.html" class="menu-item">
                     <i class="fa-solid fa-briefcase"></i>
                     <span>CDC</span>
                 </a>
@@ -86,7 +86,7 @@
                     </button>
                     <div class="search-box">
                         <i class="fa-solid fa-search"></i>
-                        <input type="text" placeholder="Search CDC notices, companies..." id="cdcSearch">
+                        <input type="text" placeholder="Search invoices, scholarship..." id="accountsSearch">
                     </div>
                 </div>
 
@@ -97,7 +97,7 @@
                     </button>
                     <button class="icon-btn" aria-label="Notifications">
                         <i class="fa-regular fa-bell"></i>
-                        <span class="badge" style="background:var(--brand-primary); color:#fff;">3</span>
+                        <span class="badge" style="background:var(--brand-primary); color:#fff;">1</span>
                     </button>
 
                     <!-- Fully working Profile Dropdown -->
@@ -131,140 +131,125 @@
             <div class="content-area">
                 <div class="hero-banner">
                     <div class="hero-text">
-                        <h1>CDC Placement & Internship Portal</h1>
-                        <p>Career Development Centre, IIT Kharagpur. Manage applications, CVs, and schedules.</p>
+                        <h1>Accounts & Financial Portal</h1>
+                        <p>Track your semester fees, view scholarship details, and manage Mediclaim information.</p>
                     </div>
                 </div>
 
                 <div class="bento-grid">
-                    <!-- CV Verification Card -->
+                    <!-- Fee Payment Overview Card -->
                     <div class="card glass-panel col-span-4">
                         <div class="card-header">
                             <h3 class="card-title">
-                                <span class="card-icon"><i class="fa-solid fa-file-pdf"></i></span>
-                                CV & Profile Status
+                                <span class="card-icon"><i class="fa-solid fa-money-check-dollar"></i></span>
+                                Fee Demand Summary
                             </h3>
                         </div>
                         <div class="link-list">
                             <div style="display:flex; justify-content:space-between; align-items:center; padding:12px; background:var(--brand-bg); border-radius:8px; border:1px solid var(--border-color); font-size:13px;">
-                                <span style="font-weight:600; color:var(--text-muted)">Registration Status</span>
-                                <span style="background:var(--accent-green-bg); color:var(--accent-green); padding:4px 8px; border-radius:4px; font-weight:700; font-size:11px;">REGISTERED</span>
+                                <span style="font-weight:600; color:var(--text-muted)">Current Demand</span>
+                                <span style="font-weight:800; color:var(--text-main);">₹28,500</span>
                             </div>
                             <div style="display:flex; justify-content:space-between; align-items:center; padding:12px; background:var(--brand-bg); border-radius:8px; border:1px solid var(--border-color); font-size:13px;">
-                                <span style="font-weight:600; color:var(--text-muted)">Default CV (CV_v1.pdf)</span>
-                                <span style="background:var(--accent-green-bg); color:var(--accent-green); padding:4px 8px; border-radius:4px; font-weight:700; font-size:11px;">VERIFIED</span>
+                                <span style="font-weight:600; color:var(--text-muted)">Payment Status</span>
+                                <span style="background:var(--accent-red-bg); color:var(--accent-red); padding:4px 8px; border-radius:4px; font-weight:700; font-size:11px;">UNPAID</span>
                             </div>
                             <div style="display:flex; justify-content:space-between; align-items:center; padding:12px; background:var(--brand-bg); border-radius:8px; border:1px solid var(--border-color); font-size:13px;">
-                                <span style="font-weight:600; color:var(--text-muted)">Alternative CV (CV_v2.pdf)</span>
-                                <span style="background:rgba(245,158,11,0.05); color:rgb(245,158,11); padding:4px 8px; border-radius:4px; font-weight:700; font-size:11px;">PENDING RE-VERIFY</span>
+                                <span style="font-weight:600; color:var(--text-muted)">Due Date</span>
+                                <span style="color:var(--accent-red); font-weight:700; font-size:12px;">30th June 2026</span>
                             </div>
-                            <button class="btn-primary" style="margin-top: 10px;"><i class="fa-solid fa-upload" style="margin-right: 8px;"></i> Upload New CV</button>
                         </div>
                     </div>
 
-                    <!-- Statistics / Summary Card -->
+                    <!-- Online Payment Form -->
                     <div class="card glass-panel col-span-8">
                         <div class="card-header">
                             <h3 class="card-title">
-                                <span class="card-icon"><i class="fa-solid fa-chart-line"></i></span>
-                                Job & Internship Applications
+                                <span class="card-icon"><i class="fa-solid fa-credit-card"></i></span>
+                                Quick Pay Semester Fees
                             </h3>
                         </div>
-                        <div class="table-responsive">
-                            <table style="width:100%; border-collapse:collapse; text-align:left; font-size:13px;">
-                                <thead>
-                                    <tr style="border-bottom:1px solid var(--border-color); color:var(--text-muted)">
-                                        <th style="padding:12px 8px;">Company</th>
-                                        <th style="padding:12px 8px;">Role</th>
-                                        <th style="padding:12px 8px;">Type</th>
-                                        <th style="padding:12px 8px;">CTC / Stipend</th>
-                                        <th style="padding:12px 8px;">Status</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr style="border-bottom:1px solid var(--border-color)">
-                                        <td style="padding:12px 8px; font-weight:600;">Google India</td>
-                                        <td style="padding:12px 8px;">Software Engineer</td>
-                                        <td style="padding:12px 8px;">FTE Placement</td>
-                                        <td style="padding:12px 8px;">35.5 LPA</td>
-                                        <td style="padding:12px 8px;"><span style="background:var(--brand-primary-bg); color:var(--brand-primary); padding:3px 6px; border-radius:4px; font-weight:600; font-size:11px;">APPLIED</span></td>
-                                    </tr>
-                                    <tr style="border-bottom:1px solid var(--border-color)">
-                                        <td style="padding:12px 8px; font-weight:600;">Microsoft</td>
-                                        <td style="padding:12px 8px;">Data Scientist</td>
-                                        <td style="padding:12px 8px;">FTE Placement</td>
-                                        <td style="padding:12px 8px;">32.0 LPA</td>
-                                        <td style="padding:12px 8px;"><span style="background:var(--accent-green-bg); color:var(--accent-green); padding:3px 6px; border-radius:4px; font-weight:600; font-size:11px;">SHORTLISTED</span></td>
-                                    </tr>
-                                    <tr style="border-bottom:1px solid var(--border-color)">
-                                        <td style="padding:12px 8px; font-weight:600;">Goldman Sachs</td>
-                                        <td style="padding:12px 8px;">Systems Analyst</td>
-                                        <td style="padding:12px 8px;">FTE Placement</td>
-                                        <td style="padding:12px 8px;">24.0 LPA</td>
-                                        <td style="padding:12px 8px;"><span style="background:rgba(239,68,68,0.05); color:var(--accent-red); padding:3px 6px; border-radius:4px; font-weight:600; font-size:11px;">NOT SHORTLISTED</span></td>
-                                    </tr>
-                                    <tr style="border-bottom:1px solid var(--border-color)">
-                                        <td style="padding:12px 8px; font-weight:600;">Rubrik Inc.</td>
-                                        <td style="padding:12px 8px;">Product Engineer</td>
-                                        <td style="padding:12px 8px;">FTE Placement</td>
-                                        <td style="padding:12px 8px;">48.0 LPA</td>
-                                        <td style="padding:12px 8px;"><span style="background:rgba(245,158,11,0.05); color:rgb(245,158,11); padding:3px 6px; border-radius:4px; font-weight:600; font-size:11px;">TEST SCHEDULED</span></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                        <form class="profile-form-grid" onsubmit="event.preventDefault(); alert('Redirecting to Payment Gateway (SBI/PNB)...');">
+                            <div class="form-group">
+                                <label for="amount">Payment Amount (INR)</label>
+                                <input type="number" id="amount" class="form-control" value="28500" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label for="bankSelect">Select Bank / Gateway</label>
+                                <select id="bankSelect" class="form-control" required>
+                                    <option value="sbi">State Bank of India (Net Banking / Debit Card)</option>
+                                    <option value="pnb">Punjab National Bank (Net Banking)</option>
+                                    <option value="upi">UPI / QR Code Payment</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="rollNo">Confirm Roll Number</label>
+                                <input type="text" id="rollNo" class="form-control" value="22CS30044" readonly>
+                            </div>
+                            <div class="form-group" style="justify-content: flex-end; flex-direction: row; align-items: flex-end;">
+                                <button type="submit" class="btn-primary" style="width: 100%;"><i class="fa-solid fa-shield" style="margin-right: 8px;"></i> Pay Now</button>
+                            </div>
+                        </form>
                     </div>
 
-                    <!-- Upcoming Schedules Card -->
+                    <!-- Scholarship Card -->
                     <div class="card glass-panel col-span-6">
                         <div class="card-header">
                             <h3 class="card-title">
-                                <span class="card-icon"><i class="fa-solid fa-clock"></i></span>
-                                Upcoming Tests & Interviews
+                                <span class="card-icon"><i class="fa-solid fa-award"></i></span>
+                                Scholarships & Endowments
                             </h3>
                         </div>
-                        <div class="link-list">
-                            <a href="#" class="link-item">
-                                <div style="display:flex; flex-direction:column; gap:4px; width:100%;">
-                                    <div style="display:flex; justify-content:between; width:100%;">
-                                        <span style="font-weight:600;">Rubrik Online coding test</span>
-                                        <span style="margin-left:auto; color:var(--brand-primary); font-weight:600;">Today, 18:00</span>
-                                    </div>
-                                    <span style="font-size:11px; color:var(--text-muted)">Venue: Nalanda Complex / Online Portal</span>
+                        <div class="link-list" style="gap:10px;">
+                            <div style="display:flex; justify-content:space-between; align-items:center; padding:12px; background:var(--brand-bg); border-radius:8px; border:1px solid var(--border-color); font-size:13px;">
+                                <div>
+                                    <strong style="display:block;">Merit-cum-Means (MCM) Scholarship</strong>
+                                    <span style="color:var(--text-muted); font-size:11px;">Academic Session 2025-2026</span>
                                 </div>
-                            </a>
-                            <a href="#" class="link-item">
-                                <div style="display:flex; flex-direction:column; gap:4px; width:100%;">
-                                    <div style="display:flex; justify-content:between; width:100%;">
-                                        <span style="font-weight:600;">Microsoft Data Science Interview</span>
-                                        <span style="margin-left:auto; color:var(--accent-green); font-weight:600;">28th May, 10:00</span>
-                                    </div>
-                                    <span style="font-size:11px; color:var(--text-muted)">Venue: Vikramshila CDC Rooms (Offline)</span>
+                                <span style="background:var(--accent-green-bg); color:var(--accent-green); padding:4px 8px; border-radius:4px; font-weight:700; font-size:11px;">APPROVED</span>
+                            </div>
+                            <div style="display:flex; justify-content:space-between; align-items:center; padding:12px; background:var(--brand-bg); border-radius:8px; border:1px solid var(--border-color); font-size:13px;">
+                                <div>
+                                    <strong style="display:block;">Bank Account Verification</strong>
+                                    <span style="color:var(--text-muted); font-size:11px;">SBI Kharagpur Campus A/c - *******3492</span>
                                 </div>
-                            </a>
+                                <span style="background:var(--accent-green-bg); color:var(--accent-green); padding:4px 8px; border-radius:4px; font-weight:700; font-size:11px;">VERIFIED</span>
+                            </div>
+                            <div style="display:flex; justify-content:space-between; align-items:center; padding:12px; background:var(--brand-bg); border-radius:8px; border:1px solid var(--border-color); font-size:13px;">
+                                <div>
+                                    <strong style="display:block;">Endowment Award (Donor-based)</strong>
+                                    <span style="color:var(--text-muted); font-size:11px;">UG Top performer in CS</span>
+                                </div>
+                                <span style="background:rgba(245,158,11,0.05); color:rgb(245,158,11); padding:4px 8px; border-radius:4px; font-weight:700; font-size:11px;">IN PROCESS</span>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- CDC General Actions -->
+                    <!-- Mediclaim Card -->
                     <div class="card glass-panel col-span-6">
                         <div class="card-header">
                             <h3 class="card-title">
-                                <span class="card-icon"><i class="fa-solid fa-circle-info"></i></span>
-                                Important Actions
+                                <span class="card-icon"><i class="fa-solid fa-house-medical"></i></span>
+                                Mediclaim & Health Insurance
                             </h3>
                         </div>
-                        <div class="action-grid">
-                            <a href="#" class="action-box">
-                                <i class="fa-solid fa-circle-question"></i>
-                                <span>Report Grievance</span>
-                            </a>
-                            <a href="#" class="action-box">
-                                <i class="fa-solid fa-file-shield"></i>
-                                <span>Rules & Guidelines</span>
-                            </a>
-                            <a href="#" class="action-box">
-                                <i class="fa-solid fa-user-check"></i>
-                                <span>Verify CGPA/Credits</span>
+                        <div class="link-list" style="gap:10px;">
+                            <div style="display:flex; justify-content:space-between; align-items:center; padding:12px; background:var(--brand-bg); border-radius:8px; border:1px solid var(--border-color); font-size:13px;">
+                                <div>
+                                    <strong style="display:block;">Insurance Provider</strong>
+                                    <span style="color:var(--text-muted); font-size:11px;">National Insurance Company Ltd.</span>
+                                </div>
+                                <span style="font-weight:700; color:var(--text-main);">NIC-IITKGP-88392</span>
+                            </div>
+                            <div style="display:flex; justify-content:space-between; align-items:center; padding:12px; background:var(--brand-bg); border-radius:8px; border:1px solid var(--border-color); font-size:13px;">
+                                <div>
+                                    <strong style="display:block;">Annual Coverage Remaining</strong>
+                                    <span style="color:var(--text-muted); font-size:11px;">Updated May 2026</span>
+                                </div>
+                                <span style="font-weight:800; color:var(--accent-green);">₹1,20,000</span>
+                            </div>
+                            <a href="#" class="link-item" style="padding:10px 14px;">
+                                <i class="fa-solid fa-circle-down"></i> Download Mediclaim Card
                             </a>
                         </div>
                     </div>

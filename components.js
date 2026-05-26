@@ -382,6 +382,25 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             </div>
         </div>
+
+        <!-- Generic Message/Notification Modal -->
+        <div class="modal-overlay" id="modalReadMessage">
+            <div class="modal-container">
+                <div class="modal-header">
+                    <h3 id="readMessageTitle">Message Details</h3>
+                    <button class="modal-close"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+                <div class="modal-body">
+                    <div style="margin-bottom:12px; font-size:12px; color:var(--text-muted); font-weight:600; text-transform:uppercase; letter-spacing:0.5px;" id="readMessageSender">Sender Name</div>
+                    <div style="font-size:14px; color:var(--text-main); line-height:1.6; white-space:pre-wrap;" id="readMessageBody">
+                        Full message content will go here.
+                    </div>
+                    <div style="margin-top: 24px; display:flex; gap:12px; justify-content:flex-end;">
+                        <button type="button" class="btn-primary modal-close" style="background:var(--border-color); color:var(--text-main); border:1px solid var(--border-color);">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         `;
         document.body.appendChild(globalModals);
     }
@@ -460,6 +479,43 @@ document.addEventListener('DOMContentLoaded', () => {
         setupGlobalModal('globalPassphraseLink', 'modalPassphrase');
         setupGlobalModal('globalSwitchLink', 'modalSwitchLogin');
         setupGlobalModal('globalLogoutLink', 'modalLogout');
+
+        // Dynamic Mail & Notification click handlers
+        const messageModal = document.getElementById('modalReadMessage');
+        const msgTitle = document.getElementById('readMessageTitle');
+        const msgSender = document.getElementById('readMessageSender');
+        const msgBody = document.getElementById('readMessageBody');
+
+        document.querySelectorAll('.message-item').forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                const sender = item.querySelector('strong').innerText;
+                const subject = item.querySelector('.message-subject').innerText;
+                const preview = item.querySelector('.message-preview').innerText;
+                
+                if (msgTitle) msgTitle.innerText = subject;
+                if (msgSender) msgSender.innerText = "From: " + sender;
+                if (msgBody) msgBody.innerText = preview + "\\n\\n(End of message)";
+                
+                if (mailMenu) mailMenu.classList.remove('open');
+                if (messageModal) messageModal.classList.add('open');
+            });
+        });
+
+        document.querySelectorAll('.notification-item').forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                const title = item.querySelector('strong').innerText;
+                const body = item.querySelector('span').innerText;
+                
+                if (msgTitle) msgTitle.innerText = "Alert: " + title;
+                if (msgSender) msgSender.innerText = "System Notification";
+                if (msgBody) msgBody.innerText = body;
+                
+                if (notificationMenu) notificationMenu.classList.remove('open');
+                if (messageModal) messageModal.classList.add('open');
+            });
+        });
 
         // Wire up close logic for all modals (both global and page-specific)
         document.addEventListener('click', (e) => {

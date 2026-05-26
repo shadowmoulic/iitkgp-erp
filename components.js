@@ -1,6 +1,11 @@
 // Dynamic prefix calculation based on location pathname
-let pathPrefix = "/";
+let pathPrefix = "./";
 const path = window.location.pathname;
+if (path.includes('/academic-information/') || path.includes('/performance/')) {
+    pathPrefix = "../../";
+} else if (path.includes('/academic/') || path.includes('/cdc/') || path.includes('/accommodation/') || path.includes('/accounts/')) {
+    pathPrefix = "../";
+}
 
 // Inject Favicon if it doesn't exist
 if (!document.querySelector('link[rel="icon"]')) {

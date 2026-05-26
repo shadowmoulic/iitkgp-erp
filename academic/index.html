@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,6 +15,7 @@
             flex-direction: column;
             gap: 12px;
         }
+
         .acad-acc-item {
             background: var(--panel-bg);
             border: 1px solid var(--border-color);
@@ -21,6 +23,7 @@
             overflow: hidden;
             box-shadow: var(--shadow-sm);
         }
+
         .acad-acc-header {
             padding: 16px 20px;
             display: flex;
@@ -32,16 +35,20 @@
             color: var(--text-main);
             transition: var(--transition-fast);
         }
+
         .acad-acc-header:hover {
             background: var(--brand-primary-bg);
             color: var(--brand-primary);
         }
+
         .acad-acc-header i.caret {
             transition: transform 0.3s ease;
         }
+
         .acad-acc-item.open .acad-acc-header i.caret {
             transform: rotate(180deg);
         }
+
         .acad-acc-body {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -52,12 +59,15 @@
             transition: all 0.3s ease;
             background: #fafafa;
         }
+
         .acad-acc-item.open .acad-acc-body {
             padding: 16px 20px;
-            max-height: 2000px; /* arbitrary large value for transition */
+            max-height: 2000px;
+            /* arbitrary large value for transition */
             opacity: 1;
             border-top: 1px solid var(--border-color);
         }
+
         .masonry-link {
             display: flex;
             justify-content: space-between;
@@ -70,20 +80,23 @@
             color: var(--brand-primary);
             text-decoration: none;
             transition: var(--transition-fast);
-            box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
         }
+
         .masonry-link:hover {
             border-color: var(--brand-primary-light);
             background: var(--brand-primary-bg);
             transform: translateY(-2px);
             box-shadow: var(--shadow-sm);
         }
+
         .masonry-link i {
             color: var(--brand-primary-light);
             font-size: 14px;
         }
     </style>
 </head>
+
 <body>
     <!-- Animated Background Blobs -->
     <div class="bg-blob blob-1"></div>
@@ -109,7 +122,7 @@
                 </div>
 
                 <div class="bento-grid">
-                    
+
                     <!-- Stats Card (CGPA Tracker) -->
                     <div class="card glass-panel col-span-4">
                         <div class="card-header">
@@ -140,17 +153,20 @@
                                 <tbody>
                                     <tr style="border-bottom:1px solid var(--border-color)">
                                         <td style="padding:8px 4px; font-weight:600;">Semester 1</td>
-                                        <td style="padding:8px 4px; color:var(--brand-primary); font-weight:700;">8.90</td>
+                                        <td style="padding:8px 4px; color:var(--brand-primary); font-weight:700;">8.90
+                                        </td>
                                         <td style="padding:8px 4px;">20</td>
                                     </tr>
                                     <tr style="border-bottom:1px solid var(--border-color)">
                                         <td style="padding:8px 4px; font-weight:600;">Semester 2</td>
-                                        <td style="padding:8px 4px; color:var(--brand-primary); font-weight:700;">9.20</td>
+                                        <td style="padding:8px 4px; color:var(--brand-primary); font-weight:700;">9.20
+                                        </td>
                                         <td style="padding:8px 4px;">22</td>
                                     </tr>
                                     <tr style="border-bottom:1px solid var(--border-color)">
                                         <td style="padding:8px 4px; font-weight:600;">Semester 3</td>
-                                        <td style="padding:8px 4px; color:var(--brand-primary); font-weight:700;">9.35</td>
+                                        <td style="padding:8px 4px; color:var(--brand-primary); font-weight:700;">9.35
+                                        </td>
                                         <td style="padding:8px 4px;">20</td>
                                     </tr>
                                 </tbody>
@@ -179,49 +195,56 @@
                                 </thead>
                                 <tbody>
                                     <tr style="border-bottom:1px solid var(--border-color)">
-                                        <td style="padding:10px 8px; font-weight:600; color:var(--brand-primary);">CS30001</td>
+                                        <td style="padding:10px 8px; font-weight:600; color:var(--brand-primary);">
+                                            CS30001</td>
                                         <td style="padding:10px 8px;">Computer Networks</td>
                                         <td style="padding:10px 8px;">4</td>
                                         <td style="padding:10px 8px; font-weight:600;">C</td>
                                         <td style="padding:10px 8px;">Dr. Amit Kumar</td>
                                     </tr>
                                     <tr style="border-bottom:1px solid var(--border-color)">
-                                        <td style="padding:10px 8px; font-weight:600; color:var(--brand-primary);">CS30003</td>
+                                        <td style="padding:10px 8px; font-weight:600; color:var(--brand-primary);">
+                                            CS30003</td>
                                         <td style="padding:10px 8px;">Database Management Systems</td>
                                         <td style="padding:10px 8px;">4</td>
                                         <td style="padding:10px 8px; font-weight:600;">F</td>
                                         <td style="padding:10px 8px;">Dr. Priya Sen</td>
                                     </tr>
                                     <tr style="border-bottom:1px solid var(--border-color)">
-                                        <td style="padding:10px 8px; font-weight:600; color:var(--brand-primary);">CS30005</td>
+                                        <td style="padding:10px 8px; font-weight:600; color:var(--brand-primary);">
+                                            CS30005</td>
                                         <td style="padding:10px 8px;">Compilers</td>
                                         <td style="padding:10px 8px;">4</td>
                                         <td style="padding:10px 8px; font-weight:600;">A</td>
                                         <td style="padding:10px 8px;">Dr. Rajib Mall</td>
                                     </tr>
                                     <tr style="border-bottom:1px solid var(--border-color)">
-                                        <td style="padding:10px 8px; font-weight:600; color:var(--brand-primary);">CS31001</td>
+                                        <td style="padding:10px 8px; font-weight:600; color:var(--brand-primary);">
+                                            CS31001</td>
                                         <td style="padding:10px 8px;">Network Lab</td>
                                         <td style="padding:10px 8px;">2</td>
                                         <td style="padding:10px 8px; font-weight:600;">X</td>
                                         <td style="padding:10px 8px;">Dr. Amit Kumar</td>
                                     </tr>
                                     <tr style="border-bottom:1px solid var(--border-color)">
-                                        <td style="padding:10px 8px; font-weight:600; color:var(--brand-primary);">CS31003</td>
+                                        <td style="padding:10px 8px; font-weight:600; color:var(--brand-primary);">
+                                            CS31003</td>
                                         <td style="padding:10px 8px;">DBMS Lab</td>
                                         <td style="padding:10px 8px;">2</td>
                                         <td style="padding:10px 8px; font-weight:600;">Y</td>
                                         <td style="padding:10px 8px;">Dr. Priya Sen</td>
                                     </tr>
                                     <tr style="border-bottom:1px solid var(--border-color)">
-                                        <td style="padding:10px 8px; font-weight:600; color:var(--brand-primary);">HS30001</td>
+                                        <td style="padding:10px 8px; font-weight:600; color:var(--brand-primary);">
+                                            HS30001</td>
                                         <td style="padding:10px 8px;">Economics</td>
                                         <td style="padding:10px 8px;">3</td>
                                         <td style="padding:10px 8px; font-weight:600;">H</td>
                                         <td style="padding:10px 8px;">Dr. S. K. Roy</td>
                                     </tr>
                                     <tr style="border-bottom:1px solid var(--border-color)">
-                                        <td style="padding:10px 8px; font-weight:600; color:var(--brand-primary);">EA30001</td>
+                                        <td style="padding:10px 8px; font-weight:600; color:var(--brand-primary);">
+                                            EA30001</td>
                                         <td style="padding:10px 8px;">Extra Academic Activity</td>
                                         <td style="padding:10px 8px;">3</td>
                                         <td style="padding:10px 8px; font-weight:600;">E</td>
@@ -234,53 +257,73 @@
 
                     <!-- Masonry Academic Services -->
                     <div class="academic-accordion-container">
-                        
+
                         <!-- Registration & Academics -->
                         <div class="acad-acc-item open">
                             <div class="acad-acc-header" onclick="this.parentElement.classList.toggle('open')">
-                                <span><i class="fa-solid fa-graduation-cap" style="margin-right:8px; color:var(--text-muted)"></i> Registration & Academics</span>
+                                <span><i class="fa-solid fa-graduation-cap"
+                                        style="margin-right:8px; color:var(--text-muted)"></i> Registration &
+                                    Academics</span>
                                 <i class="fa-solid fa-chevron-down caret"></i>
                             </div>
                             <div class="acad-acc-body">
-                                <a href="/academic/academic-information/" class="masonry-link" style="border:1px solid var(--brand-primary); background:var(--brand-primary-bg);">
+                                <a href="https://iitkgp-erp.vercel.app/academic/academic-information/"
+                                    class="masonry-link"
+                                    style="border:1px solid var(--brand-primary); background:var(--brand-primary-bg);">
                                     <strong>Your Academic Information</strong> <i class="fa-solid fa-arrow-right"></i>
                                 </a>
-                                <a href="#" class="masonry-link">Subjects & Curricula <i class="fa-solid fa-circle-info"></i></a>
-                                <a href="#" class="masonry-link">UG Registration & Flow <i class="fa-solid fa-circle-info"></i></a>
+                                <a href="#" class="masonry-link">Subjects & Curricula <i
+                                        class="fa-solid fa-circle-info"></i></a>
+                                <a href="#" class="masonry-link">UG Registration & Flow <i
+                                        class="fa-solid fa-circle-info"></i></a>
                                 <a href="#" class="masonry-link">PG Modules <i class="fa-solid fa-circle-info"></i></a>
-                                <a href="#" class="masonry-link">Final Graduation Processing <i class="fa-solid fa-circle-info"></i></a>
-                                <a href="#" class="masonry-link">Upload GATE Score <i class="fa-solid fa-circle-info"></i></a>
-                                <a href="#" class="masonry-link">Medical Leave <i class="fa-solid fa-circle-info"></i></a>
-                                <a href="#" class="masonry-link">Interim Grade Card & Certificates <i class="fa-solid fa-circle-info"></i></a>
-                                <a href="#" class="masonry-link">Micro Credit Registration <i class="fa-solid fa-circle-info"></i></a>
+                                <a href="#" class="masonry-link">Final Graduation Processing <i
+                                        class="fa-solid fa-circle-info"></i></a>
+                                <a href="#" class="masonry-link">Upload GATE Score <i
+                                        class="fa-solid fa-circle-info"></i></a>
+                                <a href="#" class="masonry-link">Medical Leave <i
+                                        class="fa-solid fa-circle-info"></i></a>
+                                <a href="#" class="masonry-link">Interim Grade Card & Certificates <i
+                                        class="fa-solid fa-circle-info"></i></a>
+                                <a href="#" class="masonry-link">Micro Credit Registration <i
+                                        class="fa-solid fa-circle-info"></i></a>
                             </div>
                         </div>
 
                         <!-- Time Table & Exams -->
                         <div class="acad-acc-item">
                             <div class="acad-acc-header" onclick="this.parentElement.classList.toggle('open')">
-                                <span><i class="fa-solid fa-calendar-days" style="margin-right:8px; color:var(--text-muted)"></i> Time Table & Exams</span>
+                                <span><i class="fa-solid fa-calendar-days"
+                                        style="margin-right:8px; color:var(--text-muted)"></i> Time Table & Exams</span>
                                 <i class="fa-solid fa-chevron-down caret"></i>
                             </div>
                             <div class="acad-acc-body">
-                                <a href="#" class="masonry-link" id="linkCentralTimetable">Examination TimeTable <i class="fa-solid fa-circle-info"></i></a>
-                                <a href="#" class="masonry-link">Time Table (Classes) <i class="fa-solid fa-circle-info"></i></a>
-                                <a href="#" class="masonry-link" id="linkResultsReview">Results Review <i class="fa-solid fa-circle-info"></i></a>
-                                <a href="#" class="masonry-link" id="linkImportantInstructions">Important Instructions <i class="fa-solid fa-circle-info"></i></a>
+                                <a href="#" class="masonry-link" id="linkCentralTimetable">Examination TimeTable <i
+                                        class="fa-solid fa-circle-info"></i></a>
+                                <a href="#" class="masonry-link">Time Table (Classes) <i
+                                        class="fa-solid fa-circle-info"></i></a>
+                                <a href="#" class="masonry-link" id="linkResultsReview">Results Review <i
+                                        class="fa-solid fa-circle-info"></i></a>
+                                <a href="#" class="masonry-link" id="linkImportantInstructions">Important Instructions
+                                    <i class="fa-solid fa-circle-info"></i></a>
                             </div>
                         </div>
 
                         <!-- Financials & Awards -->
                         <div class="acad-acc-item">
                             <div class="acad-acc-header" onclick="this.parentElement.classList.toggle('open')">
-                                <span><i class="fa-solid fa-money-check-dollar" style="margin-right:8px; color:var(--text-muted)"></i> Financials & Awards</span>
+                                <span><i class="fa-solid fa-money-check-dollar"
+                                        style="margin-right:8px; color:var(--text-muted)"></i> Financials &
+                                    Awards</span>
                                 <i class="fa-solid fa-chevron-down caret"></i>
                             </div>
                             <div class="acad-acc-body">
-                                <a href="#" class="masonry-link">Fees Payment & Status <i class="fa-solid fa-circle-info"></i></a>
+                                <a href="#" class="masonry-link">Fees Payment & Status <i
+                                        class="fa-solid fa-circle-info"></i></a>
                                 <a href="#" class="masonry-link">Scholarship <i class="fa-solid fa-circle-info"></i></a>
                                 <a href="#" class="masonry-link">Mediclaim <i class="fa-solid fa-circle-info"></i></a>
-                                <a href="#" class="masonry-link">Award and Prize (UG) <i class="fa-solid fa-circle-info"></i></a>
+                                <a href="#" class="masonry-link">Award and Prize (UG) <i
+                                        class="fa-solid fa-circle-info"></i></a>
                             </div>
                         </div>
 
@@ -305,10 +348,14 @@
             <div class="modal-body">
                 <p>Ensure strict compliance with the following guidelines during the End-Autumn Examinations:</p>
                 <ul>
-                    <li><strong>Entry Time</strong>: Candidates must report to the examination hall 20 minutes before the scheduled start time.</li>
-                    <li><strong>Admit Card & ID</strong>: Bring a physical copy of the ERP-generated Admit Card and official IIT KGP student identity card. No entry without both.</li>
-                    <li><strong>Prohibited Items</strong>: Smartwatches, mobile phones, programmable calculators, tablets, and any electronic devices are strictly prohibited.</li>
-                    <li><strong>Stationery</strong>: Candidates must bring their own pens, pencils, rulers, and non-programmable calculators. Lending of materials is not allowed.</li>
+                    <li><strong>Entry Time</strong>: Candidates must report to the examination hall 20 minutes before
+                        the scheduled start time.</li>
+                    <li><strong>Admit Card & ID</strong>: Bring a physical copy of the ERP-generated Admit Card and
+                        official IIT KGP student identity card. No entry without both.</li>
+                    <li><strong>Prohibited Items</strong>: Smartwatches, mobile phones, programmable calculators,
+                        tablets, and any electronic devices are strictly prohibited.</li>
+                    <li><strong>Stationery</strong>: Candidates must bring their own pens, pencils, rulers, and
+                        non-programmable calculators. Lending of materials is not allowed.</li>
                 </ul>
             </div>
         </div>
@@ -322,12 +369,19 @@
                 <button class="modal-close"><i class="fa-solid fa-xmark"></i></button>
             </div>
             <div class="modal-body">
-                <p>This document details the complete academic conduct and disciplinary policy for examination periods:</p>
+                <p>This document details the complete academic conduct and disciplinary policy for examination periods:
+                </p>
                 <ol>
-                    <li><strong>Academic Malpractice</strong>: Any student found utilizing unauthorized scripts, writing on desks, or communicating with other candidates will be immediately deregistered from the course and referred to the Senate Standing Committee on Disciplinary Action.</li>
-                    <li><strong>Answer Script Guidelines</strong>: Fill in all header information on the main script and supplementary sheets accurately. Loose sheets must be tied securely.</li>
-                    <li><strong>Medical Absences</strong>: In case of acute medical emergencies, the student must report to BCR Technology Hospital and submit a medical certificate verified by the PMO within 48 hours to apply for a 'De-novo' exam request.</li>
-                    <li><strong>Grading & Moderation</strong>: Raw marks are moderated by the Departmental Academic Committee before grade allocation on the portal.</li>
+                    <li><strong>Academic Malpractice</strong>: Any student found utilizing unauthorized scripts, writing
+                        on desks, or communicating with other candidates will be immediately deregistered from the
+                        course and referred to the Senate Standing Committee on Disciplinary Action.</li>
+                    <li><strong>Answer Script Guidelines</strong>: Fill in all header information on the main script and
+                        supplementary sheets accurately. Loose sheets must be tied securely.</li>
+                    <li><strong>Medical Absences</strong>: In case of acute medical emergencies, the student must report
+                        to BCR Technology Hospital and submit a medical certificate verified by the PMO within 48 hours
+                        to apply for a 'De-novo' exam request.</li>
+                    <li><strong>Grading & Moderation</strong>: Raw marks are moderated by the Departmental Academic
+                        Committee before grade allocation on the portal.</li>
                 </ol>
             </div>
         </div>
@@ -437,8 +491,10 @@
                 <button class="modal-close"><i class="fa-solid fa-xmark"></i></button>
             </div>
             <div class="modal-body">
-                <p>If you believe there has been a discrepancy in your grade calculations, you can request a departmental recheck here. Fee of ₹500 applies per subject.</p>
-                <form onsubmit="event.preventDefault(); alert('Grade review request submitted successfully for processing.'); this.closest('.modal-overlay').classList.remove('open');">
+                <p>If you believe there has been a discrepancy in your grade calculations, you can request a
+                    departmental recheck here. Fee of ₹500 applies per subject.</p>
+                <form
+                    onsubmit="event.preventDefault(); alert('Grade review request submitted successfully for processing.'); this.closest('.modal-overlay').classList.remove('open');">
                     <div class="form-group">
                         <label for="reviewSubject">Select Subject for Review</label>
                         <select id="reviewSubject" class="form-control" required>
@@ -449,7 +505,9 @@
                     </div>
                     <div class="form-group">
                         <label for="reviewJustification">Justification / Reason for Review</label>
-                        <textarea id="reviewJustification" class="form-control" rows="4" style="resize:vertical;" placeholder="Please outline the grading sections/questions you wish to get rechecked..." required></textarea>
+                        <textarea id="reviewJustification" class="form-control" rows="4" style="resize:vertical;"
+                            placeholder="Please outline the grading sections/questions you wish to get rechecked..."
+                            required></textarea>
                     </div>
                     <button type="submit" class="btn-primary">Submit Review Request</button>
                 </form>
@@ -467,14 +525,14 @@
                     e.preventDefault();
                     modal.classList.add('open');
                 });
-                
+
                 const closeBtn = modal.querySelector('.modal-close');
                 if (closeBtn) {
                     closeBtn.addEventListener('click', () => {
                         modal.classList.remove('open');
                     });
                 }
-                
+
                 modal.addEventListener('click', (e) => {
                     if (e.target === modal) {
                         modal.classList.remove('open');
@@ -490,4 +548,5 @@
         setupModal('linkResultsReview', 'modalResultsReview');
     </script>
 </body>
+
 </html>

@@ -37,8 +37,10 @@ document.addEventListener('DOMContentLoaded', () => {
         sidebarPlaceholder.outerHTML = `
         <aside class="sidebar">
             <div class="sidebar-header">
-                <img src="${pathPrefix}iitkgp logo.png" alt="IIT KGP Logo" class="sidebar-logo">
-                <h2>IITKGP ERP</h2>
+                <a href="${pathPrefix}dashboard.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 10px;">
+                    <img src="${pathPrefix}iitkgp logo.png" alt="IIT KGP Logo" class="sidebar-logo">
+                    <h2>IITKGP ERP</h2>
+                </a>
                 <button class="close-btn" id="closeSidebar" aria-label="Close sidebar">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
@@ -591,7 +593,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (searchInput && searchResults) {
             const pages = [
-                { title: 'Dashboard', url: 'index.html', desc: 'Main ERP home page' },
+                { title: 'Dashboard', url: 'dashboard.html', desc: 'Main ERP home page' },
                 { title: 'Academic Information', url: 'academic/academic-information/', desc: 'Student profile and documents' },
                 { title: 'Performance Record', url: 'academic/performance/', desc: 'Semester grades and curricula' },
                 { title: 'Registration & Academics', url: 'academic/index.html', desc: 'UG/PG Modules and Time Table' },

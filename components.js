@@ -1,9 +1,6 @@
 // Dynamic prefix calculation based on location pathname
-let pathPrefix = "./";
+let pathPrefix = "/";
 const path = window.location.pathname;
-if (path.includes('/academic/') || path.includes('/cdc/') || path.includes('/accommodation/') || path.includes('/accounts/')) {
-    pathPrefix = "../";
-}
 
 // Inject Favicon if it doesn't exist
 if (!document.querySelector('link[rel="icon"]')) {
@@ -590,8 +587,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (searchInput && searchResults) {
             const pages = [
                 { title: 'Dashboard', url: 'index.html', desc: 'Main ERP home page' },
-                { title: 'Academic Information', url: 'academic/academic-information.html', desc: 'Student profile and documents' },
-                { title: 'Performance Record', url: 'academic/performance.html', desc: 'Semester grades and curricula' },
+                { title: 'Academic Information', url: 'academic/academic-information/', desc: 'Student profile and documents' },
+                { title: 'Performance Record', url: 'academic/performance/', desc: 'Semester grades and curricula' },
                 { title: 'Registration & Academics', url: 'academic/index.html', desc: 'UG/PG Modules and Time Table' },
                 { title: 'Guest House Booking', url: 'accommodation/guest-house.html', desc: 'Search availability and book rooms' },
                 { title: 'Accommodation Dashboard', url: 'accommodation/index.html', desc: 'Guest house portal home' },

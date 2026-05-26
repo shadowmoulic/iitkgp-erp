@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accommodation & Guest House - ERP KGP</title>
+    <link class="style-ref" rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Animated Background Blobs -->
+    <div class="bg-blob blob-1"></div>
+    <div class="bg-blob blob-2"></div>
+    <div class="bg-blob blob-3"></div>
+
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <i class="fa-solid fa-graduation-cap" style="font-size: 24px; color: var(--brand-primary);"></i>
+                <h2>IITKGP ERP</h2>
+                <button class="close-btn" id="closeSidebar" aria-label="Close sidebar">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            
+            <nav class="sidebar-menu">
+                <a href="../index.html" class="menu-item">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Dashboard</span>
+                </a>
+
+                <!-- Academic Menu Accordion (Closed by default) -->
+                <div class="accordion-wrapper" id="academicAccordion">
+                    <div class="menu-item accordion-header">
+                        <div style="display:flex; align-items:center; gap:12px;">
+                            <i class="fa-solid fa-book-open"></i>
+                            <span>Academic</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-down caret"></i>
+                    </div>
+                    
+                    <div class="accordion-content">
+                        <div class="submenu-category">Registration & Academics</div>
+                        <a href="../academic/index.html" class="submenu-item">Subjects & Curricula</a>
+                        <a href="../academic/index.html" class="submenu-item">UG Registration & Flow</a>
+                        <a href="../academic/index.html" class="submenu-item">PG Modules</a>
+                        <a href="../academic/index.html" class="submenu-item">Final Graduation Processing</a>
+
+                        <div class="submenu-category">Time Table & Exams</div>
+                        <a href="../academic/index.html" class="submenu-item">Examination TimeTable</a>
+                        <a href="../academic/index.html" class="submenu-item">Time Table (Classes)</a>
+                        <a href="../academic/index.html" class="submenu-item">Results Review</a>
+
+                        <div class="submenu-category">Financials & Awards</div>
+                        <a href="../academic/index.html" class="submenu-item">Fees Payment & Status</a>
+                        <a href="../academic/index.html" class="submenu-item">Scholarship</a>
+                        <a href="../academic/index.html" class="submenu-item">Mediclaim</a>
+                        <a href="../academic/index.html" class="submenu-item">Award and Prize (UG)</a>
+                    </div>
+                </div>
+
+                <a href="#" class="menu-item">
+                    <i class="fa-solid fa-file-invoice-dollar"></i>
+                    <span>Accounts</span>
+                </a>
+                <a href="./index.html" class="menu-item active">
+                    <i class="fa-solid fa-hotel"></i>
+                    <span>Guest House</span>
+                </a>
+                <a href="../cdc/index.html" class="menu-item">
+                    <i class="fa-solid fa-briefcase"></i>
+                    <span>CDC</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Area -->
+        <main class="main-area">
+            <!-- Top Navigation -->
+            <header class="top-nav">
+                <div style="display: flex; align-items: center;">
+                    <button class="menu-btn" id="openSidebar" aria-label="Open sidebar">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    <div class="search-box">
+                        <i class="fa-solid fa-search"></i>
+                        <input type="text" placeholder="Search rooms, dining menu..." id="accommodationSearch">
+                    </div>
+                </div>
+
+                <div class="nav-actions">
+                    <button class="icon-btn" aria-label="Messages">
+                        <i class="fa-regular fa-envelope"></i>
+                        <span class="badge">1</span>
+                    </button>
+                    <button class="icon-btn" aria-label="Notifications">
+                        <i class="fa-regular fa-bell"></i>
+                        <span class="badge" style="background:var(--brand-primary); color:#fff;">2</span>
+                    </button>
+
+                    <!-- Fully working Profile Dropdown -->
+                    <div class="profile-menu" id="profileMenu">
+                        <div class="profile-btn" id="profileBtn">
+                            <img src="https://ui-avatars.com/api/?name=Sayak+Moulic&background=3b82f6&color=fff&bold=true" alt="Sayak">
+                            <span>Sayak Moulic</span>
+                            <i class="fa-solid fa-chevron-down" style="font-size: 12px; margin-left: 5px;"></i>
+                        </div>
+                        
+                        <div class="dropdown-content glass-panel">
+                            <a href="#" class="dropdown-item">
+                                <i class="fa-regular fa-user"></i> My Profile
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                <i class="fa-solid fa-gear"></i> Settings
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                <i class="fa-solid fa-key"></i> Passphrase Retrieval
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item" style="color: var(--accent-red);">
+                                <i class="fa-solid fa-arrow-right-from-bracket" style="color: var(--accent-red);"></i> Logout
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="content-area">
+                <div class="hero-banner">
+                    <div class="hero-text">
+                        <h1>Accommodation & Guest House Portal 🏢</h1>
+                        <p>Manage your hostel (Hall of Residence) allotment and book Guest House accommodations.</p>
+                    </div>
+                </div>
+
+                <div class="bento-grid">
+                    <!-- Hall Allotment Card -->
+                    <div class="card glass-panel col-span-4">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <span class="card-icon"><i class="fa-solid fa-hotel"></i></span>
+                                Hostel Allotment
+                            </h3>
+                        </div>
+                        <div class="link-list">
+                            <div style="display:flex; flex-direction:column; gap:4px; padding:12px; background:var(--brand-bg); border-radius:8px; border:1px solid var(--border-color);">
+                                <span style="font-size:11px; color:var(--text-muted); font-weight:600; text-transform:uppercase;">Hall of Residence</span>
+                                <span style="font-size:14px; font-weight:700;">Lal Bahadur Shastri (LBS) Hall</span>
+                            </div>
+                            <div style="display:flex; flex-direction:column; gap:4px; padding:12px; background:var(--brand-bg); border-radius:8px; border:1px solid var(--border-color);">
+                                <span style="font-size:11px; color:var(--text-muted); font-weight:600; text-transform:uppercase;">Room Details</span>
+                                <span style="font-size:14px; font-weight:700;">Block B, Room B-204</span>
+                            </div>
+                            <div style="display:flex; justify-content:space-between; align-items:center; padding:12px; background:var(--brand-bg); border-radius:8px; border:1px solid var(--border-color); font-size:13px;">
+                                <span style="font-weight:600; color:var(--text-muted)">Mess Dues Status</span>
+                                <span style="background:var(--accent-green-bg); color:var(--accent-green); padding:4px 8px; border-radius:4px; font-weight:700; font-size:11px;">NO DUES</span>
+                            </div>
+                            <button class="btn-primary" style="margin-top: 10px;"><i class="fa-solid fa-file-invoice" style="margin-right: 8px;"></i> Download Mess Card</button>
+                        </div>
+                    </div>
+
+                    <!-- Guest House Booking Form -->
+                    <div class="card glass-panel col-span-8">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <span class="card-icon"><i class="fa-solid fa-calendar-plus"></i></span>
+                                Guest House Booking Request
+                            </h3>
+                        </div>
+                        <form class="profile-form-grid" onsubmit="event.preventDefault(); alert('Booking request submitted successfully for review!');">
+                            <div class="form-group">
+                                <label for="guestName">Guest Full Name</label>
+                                <input type="text" id="guestName" class="form-control" placeholder="e.g. Rajashree Moulic" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="relation">Relationship</label>
+                                <select id="relation" class="form-control" required>
+                                    <option value="">Select Relation</option>
+                                    <option value="parent">Parent</option>
+                                    <option value="sibling">Sibling</option>
+                                    <option value="relative">Relative</option>
+                                    <option value="other">Official Guest</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="checkIn">Check-In Date</label>
+                                <input type="date" id="checkIn" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="checkOut">Check-Out Date</label>
+                                <input type="date" id="checkOut" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="roomType">Preferred Guest House</label>
+                                <select id="roomType" class="form-control" required>
+                                    <option value="visveswaraya">Visveswaraya Guest House (VGH)</option>
+                                    <option value="technology">Technology Guest House (TGH)</option>
+                                    <option value="samg">SAMG Guest House</option>
+                                </select>
+                            </div>
+                            <div class="form-group" style="justify-content: flex-end; flex-direction: row; align-items: flex-end; grid-column: span 2;">
+                                <button type="submit" class="btn-primary" style="width: 100%;"><i class="fa-solid fa-circle-check" style="margin-right: 8px;"></i> Request Booking</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Mess Menu Card -->
+                    <div class="card glass-panel col-span-6">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <span class="card-icon"><i class="fa-solid fa-utensils"></i></span>
+                                Today's Mess Menu (LBS Hall)
+                            </h3>
+                        </div>
+                        <div class="link-list" style="gap:8px;">
+                            <div style="display:flex; align-items:flex-start; gap:12px; padding:10px 14px; background:var(--brand-bg); border-radius:8px; border:1px solid var(--border-color); font-size:13px;">
+                                <span style="background:var(--brand-primary-bg); color:var(--brand-primary); font-weight:700; padding:4px 8px; border-radius:4px; font-size:11px;">BREAKFAST</span>
+                                <div>
+                                    <strong style="display:block; margin-bottom:2px;">Aloo Paratha & Curd</strong>
+                                    <span style="color:var(--text-muted); font-size:11px;">Timing: 07:30 AM - 09:00 AM</span>
+                                </div>
+                            </div>
+                            <div style="display:flex; align-items:flex-start; gap:12px; padding:10px 14px; background:var(--brand-bg); border-radius:8px; border:1px solid var(--border-color); font-size:13px;">
+                                <span style="background:var(--brand-primary-bg); color:var(--brand-primary); font-weight:700; padding:4px 8px; border-radius:4px; font-size:11px;">LUNCH</span>
+                                <div>
+                                    <strong style="display:block; margin-bottom:2px;">Rice, Dal Fry, Seasonal Veg, Egg Curry / Paneer</strong>
+                                    <span style="color:var(--text-muted); font-size:11px;">Timing: 12:00 PM - 02:00 PM</span>
+                                </div>
+                            </div>
+                            <div style="display:flex; align-items:flex-start; gap:12px; padding:10px 14px; background:var(--brand-bg); border-radius:8px; border:1px solid var(--border-color); font-size:13px;">
+                                <span style="background:var(--brand-primary-bg); color:var(--brand-primary); font-weight:700; padding:4px 8px; border-radius:4px; font-size:11px;">DINNER</span>
+                                <div>
+                                    <strong style="display:block; margin-bottom:2px;">Roti, Jeera Rice, Dal, Chicken Kasa / Malai Kofta</strong>
+                                    <span style="color:var(--text-muted); font-size:11px;">Timing: 07:30 PM - 09:30 PM</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Amenities and Complaints -->
+                    <div class="card glass-panel col-span-6">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <span class="card-icon"><i class="fa-solid fa-circle-exclamation"></i></span>
+                                Hall Grievance & Maintenance
+                            </h3>
+                        </div>
+                        <div class="link-list">
+                            <a href="#" class="link-item">
+                                <i class="fa-solid fa-wrench"></i> Lodge Carpentry / Electrical Complaint
+                            </a>
+                            <a href="#" class="link-item">
+                                <i class="fa-solid fa-wifi"></i> Report Hall Wi-Fi Connectivity Issue
+                            </a>
+                            <a href="#" class="link-item">
+                                <i class="fa-solid fa-shield-halved"></i> Apply for Cycle Sticker / Gate Pass
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <p>Copyright &copy; ERP System, IIT Kharagpur. Helpline - 032222-81019/81018/81017</p>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        // Profile Dropdown Logic
+        const profileMenu = document.getElementById('profileMenu');
+        const profileBtn = document.getElementById('profileBtn');
+
+        profileBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            profileMenu.classList.toggle('open');
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!profileMenu.contains(e.target)) {
+                profileMenu.classList.remove('open');
+            }
+        });
+
+        // Accordion Logic
+        const accordion = document.getElementById('academicAccordion');
+        const accordionHeader = accordion.querySelector('.accordion-header');
+
+        accordionHeader.addEventListener('click', () => {
+            accordion.classList.toggle('open');
+            if (accordion.classList.contains('open')) {
+                accordionHeader.classList.add('active');
+            } else {
+                accordionHeader.classList.remove('active');
+            }
+        });
+
+        // Mobile Sidebar Logic
+        const sidebar = document.querySelector('.sidebar');
+        const openSidebar = document.getElementById('openSidebar');
+        const closeSidebar = document.getElementById('closeSidebar');
+
+        if (openSidebar && closeSidebar) {
+            openSidebar.addEventListener('click', () => {
+                sidebar.classList.add('active');
+            });
+            closeSidebar.addEventListener('click', () => {
+                sidebar.classList.remove('active');
+            });
+        }
+    </script>
+</body>
+</html>

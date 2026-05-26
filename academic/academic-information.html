@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Academic Information - ERP KGP</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="../components.js" defer></script>
+    <style>
+        .info-table th {
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--brand-primary);
+            font-weight: 700;
+            font-size: 12px;
+            padding: 10px;
+            text-align: left;
+            border-right: 1px solid var(--border-color);
+        }
+        .info-table td {
+            padding: 12px 10px;
+            font-size: 13px;
+            border-bottom: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+            vertical-align: top;
+        }
+        .info-table tr:last-child td {
+            border-bottom: none;
+        }
+        .info-table th:last-child, .info-table td:last-child {
+            border-right: none;
+        }
+        .info-link {
+            color: var(--brand-primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: var(--transition-fast);
+            cursor: pointer;
+        }
+        .info-link:hover {
+            color: var(--brand-primary-light);
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-blob blob-1"></div>
+    <div class="bg-blob blob-2"></div>
+    <div class="bg-blob blob-3"></div>
+
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <div id="sidebar-placeholder"></div>
+
+        <!-- Main Area -->
+        <main class="main-area">
+            <!-- Top Navigation -->
+            <div id="topnav-placeholder" data-placeholder="Search menus, files, students..."></div>
+
+            <!-- Dashboard Content -->
+            <div class="content-area">
+                <div class="hero-banner" style="margin-bottom: 24px; padding: 20px;">
+                    <div class="hero-text">
+                        <div style="font-size:12px; color:var(--text-muted); font-weight:600; margin-bottom:8px; text-transform:uppercase;">
+                            You are in: <a href="index.html" style="color:var(--brand-primary); text-decoration:none;">Academic</a> / Students / Your Academic Information
+                        </div>
+                        <h1>Your Academic Information</h1>
+                    </div>
+                </div>
+
+                <div class="card glass-panel" style="padding: 0; overflow: hidden; border: 1px solid var(--brand-primary);">
+                    <div style="padding: 16px; background: var(--panel-bg); border-bottom: 1px solid var(--border-color);">
+                        <h3 style="color: var(--brand-primary); font-size: 16px; margin-bottom: 4px;">Your Academic Information</h3>
+                        <p style="color: var(--accent-red); font-size: 12px; font-weight: 600;">*Please click on the links to get details(Links : Photo, Profile, Performance, Reg. Card, De-reg. Info).</p>
+                    </div>
+                    
+                    <div class="table-responsive">
+                        <table class="info-table" style="width:100%; border-collapse:collapse;">
+                            <thead>
+                                <tr>
+                                    <th>Roll No</th>
+                                    <th>Name</th>
+                                    <th>Photo</th>
+                                    <th>Biodata</th>
+                                    <th>Performance</th>
+                                    <th>Reg. Card</th>
+                                    <th>Personal File</th>
+                                    <th>Class Attendance</th>
+                                    <th>Exam. Attendance</th>
+                                    <th>De-Reg. Card</th>
+                                    <th>Faculty Advisor</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="font-weight:600;">22CS30044</td>
+                                    <td>
+                                        <div style="font-weight:700;">Sayak Moulic</div>
+                                        <div style="color:var(--accent-red); font-weight:600; font-size:11px; margin-top:4px;">Gender Sensitisation Enrollment Status : COMPLETED</div>
+                                    </td>
+                                    <td><a class="info-link" onclick="openDocModal('Photo', 'user-photo.jpg')"><i class="fa-solid fa-image"></i> Photo</a></td>
+                                    <td><a class="info-link" onclick="openDocModal('Biodata Profile', 'profile.pdf')"><i class="fa-solid fa-file-pdf"></i> Profile</a></td>
+                                    <td><a class="info-link" onclick="openDocModal('Academic Performance', 'performance.pdf')"><i class="fa-solid fa-chart-bar"></i> Performance New</a></td>
+                                    <td><a class="info-link" onclick="openDocModal('Registration Card', 'reg_card.pdf')"><i class="fa-solid fa-id-card"></i> Reg. Card</a></td>
+                                    <td><a class="info-link" onclick="openDocModal('Personal Files', 'personal_file.pdf')"><i class="fa-solid fa-folder-open"></i> Personal Files</a></td>
+                                    <td><a class="info-link" onclick="openDocModal('Class Attendance', 'attendance.pdf')"><i class="fa-solid fa-clipboard-user"></i> Class Attendance</a></td>
+                                    <td><a class="info-link" onclick="openDocModal('Exam Attendance', 'exam_attendance.pdf')"><i class="fa-solid fa-clipboard-check"></i> Exam. Attendance</a></td>
+                                    <td><a class="info-link" onclick="openDocModal('De-registration Info', 'dereg.pdf')"><i class="fa-solid fa-file-circle-xmark"></i> De-reg. Info</a></td>
+                                    <td>
+                                        <a href="mailto:jyoti@cse.iitkgp.ac.in" class="info-link" style="color:var(--text-main); font-weight:500;">
+                                            <i class="fa-solid fa-envelope"></i> Jyotirmoy Bhattacharya
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div id="footer-placeholder"></div>
+        </main>
+    </div>
+
+    <!-- Document Viewer Modal -->
+    <div class="modal-overlay" id="modalDocViewer">
+        <div class="modal-container" style="max-width: 800px; height: 80vh;">
+            <div class="modal-header">
+                <h3 id="docTitle">Document Viewer</h3>
+                <button class="modal-close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body" style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; background:var(--brand-bg);">
+                <i class="fa-solid fa-file-pdf" style="font-size: 64px; color: var(--text-muted); margin-bottom: 16px;"></i>
+                <p style="font-size: 16px; font-weight: 600; color: var(--text-main);">Secure Document Vault</p>
+                <p style="color: var(--text-muted); font-size: 13px;" id="docFilename">Loading document...</p>
+                <div style="margin-top: 24px; padding: 12px; background: rgba(59,130,246,0.1); color: var(--brand-primary); border-radius: 8px; font-size: 13px; font-weight: 500;">
+                    <i class="fa-solid fa-lock" style="margin-right: 6px;"></i> This is a secure portal component. Actual PDF rendering would happen here via browser PDF plugin or iframe.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openDocModal(title, filename) {
+            document.getElementById('docTitle').innerText = title;
+            document.getElementById('docFilename').innerText = "Simulated View: " + filename;
+            document.getElementById('modalDocViewer').classList.add('open');
+        }
+    </script>
+</body>
+</html>

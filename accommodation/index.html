@@ -58,49 +58,18 @@
                         </div>
                     </div>
 
-                    <!-- Guest House Booking Form -->
+                    <!-- Guest House Booking Link -->
                     <div class="card glass-panel col-span-8">
                         <div class="card-header">
                             <h3 class="card-title">
                                 <span class="card-icon"><i class="fa-solid fa-calendar-plus"></i></span>
-                                Guest House Booking Request
+                                Guest House Booking Services
                             </h3>
                         </div>
-                        <form class="profile-form-grid" onsubmit="event.preventDefault(); alert('Booking request submitted successfully for review!');">
-                            <div class="form-group">
-                                <label for="guestName">Guest Full Name</label>
-                                <input type="text" id="guestName" class="form-control" placeholder="e.g. Rajashree Moulic" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="relation">Relationship</label>
-                                <select id="relation" class="form-control" required>
-                                    <option value="">Select Relation</option>
-                                    <option value="parent">Parent</option>
-                                    <option value="sibling">Sibling</option>
-                                    <option value="relative">Relative</option>
-                                    <option value="other">Official Guest</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="checkIn">Check-In Date</label>
-                                <input type="date" id="checkIn" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="checkOut">Check-Out Date</label>
-                                <input type="date" id="checkOut" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="roomType">Preferred Guest House</label>
-                                <select id="roomType" class="form-control" required>
-                                    <option value="visveswaraya">Visveswaraya Guest House (VGH)</option>
-                                    <option value="technology">Technology Guest House (TGH)</option>
-                                    <option value="samg">SAMG Guest House</option>
-                                </select>
-                            </div>
-                            <div class="form-group" style="justify-content: flex-end; flex-direction: row; align-items: flex-end; grid-column: span 2;">
-                                <button type="submit" class="btn-primary" style="width: 100%;"><i class="fa-solid fa-circle-check" style="margin-right: 8px;"></i> Request Booking</button>
-                            </div>
-                        </form>
+                        <div style="display:flex; flex-direction:column; gap:16px;">
+                            <p style="color:var(--text-muted); font-size:14px;">Access the dedicated Guest House Availability and Booking portal to search for rooms, view waitlists, and make reservations across all campus and external guest houses.</p>
+                            <a href="guest-house.html" class="btn-primary" style="text-decoration:none; width:fit-content;"><i class="fa-solid fa-magnifying-glass" style="margin-right:8px;"></i> Search Guest House Availability</a>
+                        </div>
                     </div>
 
                     <!-- Mess Menu Card -->

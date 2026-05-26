@@ -1010,10 +1010,24 @@ body {
     font-weight: 600;
     cursor: pointer;
     transition: var(--transition-fast);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
+    word-break: break-word;
 }
 
 .btn-primary:hover {
     background: #2563eb;
+}
+
+@media (max-width: 600px) {
+    .link-list > div {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
 }
 
 /* Modal Design System */

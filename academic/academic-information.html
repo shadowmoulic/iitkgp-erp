@@ -8,41 +8,99 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="../components.js" defer></script>
     <style>
-        .info-table th {
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            padding: 24px;
+            background: var(--panel-bg);
+            border-bottom: 1px solid var(--border-color);
+            flex-wrap: wrap;
+        }
+        .profile-avatar {
+            width: 80px;
+            height: 80px;
+            background: var(--brand-primary-bg);
+            color: var(--brand-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: 700;
+        }
+        .profile-info h2 {
+            margin: 0 0 4px 0;
+            color: var(--text-main);
+            font-size: 24px;
+        }
+        .profile-info .roll-no {
+            color: var(--text-muted);
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .profile-meta {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            font-size: 13px;
+        }
+        .meta-tag {
             background: rgba(59, 130, 246, 0.1);
             color: var(--brand-primary);
-            font-weight: 700;
-            font-size: 12px;
-            padding: 10px;
-            text-align: left;
-            border-right: 1px solid var(--border-color);
-        }
-        .info-table td {
-            padding: 12px 10px;
-            font-size: 13px;
-            border-bottom: 1px solid var(--border-color);
-            border-right: 1px solid var(--border-color);
-            vertical-align: top;
-        }
-        .info-table tr:last-child td {
-            border-bottom: none;
-        }
-        .info-table th:last-child, .info-table td:last-child {
-            border-right: none;
-        }
-        .info-link {
-            color: var(--brand-primary);
-            text-decoration: none;
+            padding: 6px 12px;
+            border-radius: 20px;
             font-weight: 600;
             display: flex;
             align-items: center;
             gap: 6px;
-            transition: var(--transition-fast);
-            cursor: pointer;
         }
-        .info-link:hover {
-            color: var(--brand-primary-light);
-            text-decoration: underline;
+        .meta-tag.success {
+            background: var(--accent-green-bg);
+            color: var(--accent-green);
+        }
+        .doc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 16px;
+            padding: 24px;
+        }
+        .doc-card {
+            background: var(--brand-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition-fast);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-main);
+        }
+        .doc-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--brand-primary);
+            box-shadow: var(--shadow-md);
+        }
+        .doc-card i {
+            font-size: 32px;
+            color: var(--brand-primary);
+            background: var(--brand-primary-bg);
+            padding: 16px;
+            border-radius: 50%;
+            transition: var(--transition-fast);
+        }
+        .doc-card:hover i {
+            background: var(--brand-primary);
+            color: white;
+        }
+        .doc-card span {
+            font-weight: 600;
+            font-size: 14px;
         }
     </style>
 </head>
@@ -71,52 +129,54 @@
                     </div>
                 </div>
 
-                <div class="card glass-panel" style="padding: 0; overflow: hidden; border: 1px solid var(--brand-primary);">
-                    <div style="padding: 16px; background: var(--panel-bg); border-bottom: 1px solid var(--border-color);">
-                        <h3 style="color: var(--brand-primary); font-size: 16px; margin-bottom: 4px;">Your Academic Information</h3>
-                        <p style="color: var(--accent-red); font-size: 12px; font-weight: 600;">*Please click on the links to get details(Links : Photo, Profile, Performance, Reg. Card, De-reg. Info).</p>
+                <div class="card glass-panel" style="padding: 0; overflow: hidden;">
+                    <!-- Profile Header -->
+                    <div class="profile-header">
+                        <div class="profile-avatar">SM</div>
+                        <div class="profile-info">
+                            <h2>Sayak Moulic</h2>
+                            <div class="roll-no">Roll No: 22CS30044</div>
+                            <div class="profile-meta">
+                                <span class="meta-tag"><i class="fa-solid fa-user-tie"></i> Advisor: Jyotirmoy Bhattacharya</span>
+                                <span class="meta-tag success"><i class="fa-solid fa-check-circle"></i> Gender Sensitisation: COMPLETED</span>
+                            </div>
+                        </div>
                     </div>
                     
-                    <div class="table-responsive">
-                        <table class="info-table" style="width:100%; border-collapse:collapse;">
-                            <thead>
-                                <tr>
-                                    <th>Roll No</th>
-                                    <th>Name</th>
-                                    <th>Photo</th>
-                                    <th>Biodata</th>
-                                    <th>Performance</th>
-                                    <th>Reg. Card</th>
-                                    <th>Personal File</th>
-                                    <th>Class Attendance</th>
-                                    <th>Exam. Attendance</th>
-                                    <th>De-Reg. Card</th>
-                                    <th>Faculty Advisor</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td style="font-weight:600;">22CS30044</td>
-                                    <td>
-                                        <div style="font-weight:700;">Sayak Moulic</div>
-                                        <div style="color:var(--accent-red); font-weight:600; font-size:11px; margin-top:4px;">Gender Sensitisation Enrollment Status : COMPLETED</div>
-                                    </td>
-                                    <td><a class="info-link" onclick="openDocModal('Photo', 'user-photo.jpg')"><i class="fa-solid fa-image"></i> Photo</a></td>
-                                    <td><a class="info-link" onclick="openDocModal('Biodata Profile', 'profile.pdf')"><i class="fa-solid fa-file-pdf"></i> Profile</a></td>
-                                    <td><a class="info-link" onclick="openDocModal('Academic Performance', 'performance.pdf')"><i class="fa-solid fa-chart-bar"></i> Performance New</a></td>
-                                    <td><a class="info-link" onclick="openDocModal('Registration Card', 'reg_card.pdf')"><i class="fa-solid fa-id-card"></i> Reg. Card</a></td>
-                                    <td><a class="info-link" onclick="openDocModal('Personal Files', 'personal_file.pdf')"><i class="fa-solid fa-folder-open"></i> Personal Files</a></td>
-                                    <td><a class="info-link" onclick="openDocModal('Class Attendance', 'attendance.pdf')"><i class="fa-solid fa-clipboard-user"></i> Class Attendance</a></td>
-                                    <td><a class="info-link" onclick="openDocModal('Exam Attendance', 'exam_attendance.pdf')"><i class="fa-solid fa-clipboard-check"></i> Exam. Attendance</a></td>
-                                    <td><a class="info-link" onclick="openDocModal('De-registration Info', 'dereg.pdf')"><i class="fa-solid fa-file-circle-xmark"></i> De-reg. Info</a></td>
-                                    <td>
-                                        <a href="mailto:jyoti@cse.iitkgp.ac.in" class="info-link" style="color:var(--text-main); font-weight:500;">
-                                            <i class="fa-solid fa-envelope"></i> Jyotirmoy Bhattacharya
-                                        </a>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <!-- Document Grid -->
+                    <div class="doc-grid">
+                        <a class="doc-card" onclick="openDocModal('Photo', 'user-photo.jpg')">
+                            <i class="fa-solid fa-image"></i>
+                            <span>Photo</span>
+                        </a>
+                        <a class="doc-card" onclick="openDocModal('Biodata Profile', 'profile.pdf')">
+                            <i class="fa-solid fa-file-pdf"></i>
+                            <span>Biodata Profile</span>
+                        </a>
+                        <a href="performance.html" class="doc-card">
+                            <i class="fa-solid fa-chart-line"></i>
+                            <span>Performance Record</span>
+                        </a>
+                        <a class="doc-card" onclick="openDocModal('Registration Card', 'reg_card.pdf')">
+                            <i class="fa-solid fa-id-card"></i>
+                            <span>Registration Card</span>
+                        </a>
+                        <a class="doc-card" onclick="openDocModal('Personal Files', 'personal_file.pdf')">
+                            <i class="fa-solid fa-folder-open"></i>
+                            <span>Personal File</span>
+                        </a>
+                        <a class="doc-card" onclick="openDocModal('Class Attendance', 'attendance.pdf')">
+                            <i class="fa-solid fa-clipboard-user"></i>
+                            <span>Class Attendance</span>
+                        </a>
+                        <a class="doc-card" onclick="openDocModal('Exam Attendance', 'exam_attendance.pdf')">
+                            <i class="fa-solid fa-clipboard-check"></i>
+                            <span>Exam Attendance</span>
+                        </a>
+                        <a class="doc-card" onclick="openDocModal('De-registration Info', 'dereg.pdf')">
+                            <i class="fa-solid fa-file-circle-xmark"></i>
+                            <span>De-Reg. Card</span>
+                        </a>
                     </div>
                 </div>
             </div>

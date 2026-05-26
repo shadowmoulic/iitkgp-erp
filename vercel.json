@@ -1,11 +1,4 @@
 {
   "cleanUrls": true,
-  "rewrites": [
-    { "source": "/academic", "destination": "/academic/index.html" },
-    { "source": "/academic-information", "destination": "/academic/academic-information.html" },
-    { "source": "/performance", "destination": "/academic/performance.html" },
-    { "source": "/accounts", "destination": "/accounts/index.html" },
-    { "source": "/accommodation", "destination": "/accommodation/index.html" },
-    { "source": "/cdc", "destination": "/cdc/index.html" }
-  ]
+  "trailingSlash": true
 }

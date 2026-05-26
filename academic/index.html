@@ -338,19 +338,19 @@
                             </h3>
                         </div>
                         <div class="link-list">
-                            <a href="#" class="link-item">
+                            <a href="#" class="link-item" id="linkImportantInstructions">
                                 <i class="fa-solid fa-triangle-exclamation" style="color:var(--accent-red)"></i> Important Exam Instructions
                             </a>
-                            <a href="#" class="link-item">
+                            <a href="#" class="link-item" id="linkCompleteInstructions">
                                 <i class="fa-solid fa-list-check"></i> Complete Instructions
                             </a>
-                            <a href="#" class="link-item">
+                            <a href="#" class="link-item" id="linkCentralTimetable">
                                 <i class="fa-solid fa-calendar-days"></i> Central Exam TimeTable
                             </a>
-                            <a href="#" class="link-item">
+                            <a href="#" class="link-item" id="linkDeptTimetable">
                                 <i class="fa-solid fa-building-columns"></i> Dept. Exam Timetable
                             </a>
-                            <a href="#" class="link-item">
+                            <a href="#" class="link-item" id="linkResultsReview">
                                 <i class="fa-solid fa-graduation-cap"></i> Results Review (UG)
                             </a>
                         </div>
@@ -364,6 +364,169 @@
                 <p>Copyright &copy; ERP System, IIT Kharagpur. Helpline - 032222-81019/81018/81017</p>
             </footer>
         </main>
+    </div>
+
+    <!-- Modals -->
+    <!-- Important Instructions Modal -->
+    <div class="modal-overlay" id="modalImportantInstructions">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3>Important Examination Instructions</h3>
+                <button class="modal-close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <p>Ensure strict compliance with the following guidelines during the End-Autumn Examinations:</p>
+                <ul>
+                    <li><strong>Entry Time</strong>: Candidates must report to the examination hall 20 minutes before the scheduled start time.</li>
+                    <li><strong>Admit Card & ID</strong>: Bring a physical copy of the ERP-generated Admit Card and official IIT KGP student identity card. No entry without both.</li>
+                    <li><strong>Prohibited Items</strong>: Smartwatches, mobile phones, programmable calculators, tablets, and any electronic devices are strictly prohibited.</li>
+                    <li><strong>Stationery</strong>: Candidates must bring their own pens, pencils, rulers, and non-programmable calculators. Lending of materials is not allowed.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Complete Instructions Modal -->
+    <div class="modal-overlay" id="modalCompleteInstructions">
+        <div class="modal-container" style="max-width: 700px;">
+            <div class="modal-header">
+                <h3>Complete Academic Examination Code of Conduct</h3>
+                <button class="modal-close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <p>This document details the complete academic conduct and disciplinary policy for examination periods:</p>
+                <ol>
+                    <li><strong>Academic Malpractice</strong>: Any student found utilizing unauthorized scripts, writing on desks, or communicating with other candidates will be immediately deregistered from the course and referred to the Senate Standing Committee on Disciplinary Action.</li>
+                    <li><strong>Answer Script Guidelines</strong>: Fill in all header information on the main script and supplementary sheets accurately. Loose sheets must be tied securely.</li>
+                    <li><strong>Medical Absences</strong>: In case of acute medical emergencies, the student must report to BCR Technology Hospital and submit a medical certificate verified by the PMO within 48 hours to apply for a 'De-novo' exam request.</li>
+                    <li><strong>Grading & Moderation</strong>: Raw marks are moderated by the Departmental Academic Committee before grade allocation on the portal.</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <!-- Central Exam Timetable Modal -->
+    <div class="modal-overlay" id="modalCentralTimetable">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3>Central Examination Timetable</h3>
+                <button class="modal-close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <p>Autumn Semester End-Term Central Timetable for all undergraduate batches:</p>
+                <div class="table-responsive">
+                    <table style="width:100%; border-collapse:collapse; text-align:left; font-size:13px;">
+                        <thead>
+                            <tr style="border-bottom:1px solid var(--border-color); color:var(--text-muted)">
+                                <th style="padding:10px 8px;">Date</th>
+                                <th style="padding:10px 8px;">Session</th>
+                                <th style="padding:10px 8px;">Time</th>
+                                <th style="padding:10px 8px;">Batches</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom:1px solid var(--border-color)">
+                                <td style="padding:10px 8px; font-weight:600;">Nov 23, 2026</td>
+                                <td style="padding:10px 8px;">FN (Forenoon)</td>
+                                <td style="padding:10px 8px;">09:00 AM - 12:00 PM</td>
+                                <td style="padding:10px 8px;">1st Year & 3rd Year UG</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--border-color)">
+                                <td style="padding:10px 8px; font-weight:600;">Nov 23, 2026</td>
+                                <td style="padding:10px 8px;">AN (Afternoon)</td>
+                                <td style="padding:10px 8px;">02:00 PM - 05:00 PM</td>
+                                <td style="padding:10px 8px;">2nd Year & 4th Year UG</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--border-color)">
+                                <td style="padding:10px 8px; font-weight:600;">Nov 24, 2026</td>
+                                <td style="padding:10px 8px;">FN (Forenoon)</td>
+                                <td style="padding:10px 8px;">09:00 AM - 12:00 PM</td>
+                                <td style="padding:10px 8px;">1st Year & 3rd Year UG</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--border-color)">
+                                <td style="padding:10px 8px; font-weight:600;">Nov 24, 2026</td>
+                                <td style="padding:10px 8px;">AN (Afternoon)</td>
+                                <td style="padding:10px 8px;">02:00 PM - 05:00 PM</td>
+                                <td style="padding:10px 8px;">2nd Year & 4th Year UG</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dept Exam Timetable Modal -->
+    <div class="modal-overlay" id="modalDeptTimetable">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3>Departmental Examination Timetable (CSE)</h3>
+                <button class="modal-close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <p>End-Term slots and rooms for the Department of Computer Science & Engineering:</p>
+                <div class="table-responsive">
+                    <table style="width:100%; border-collapse:collapse; text-align:left; font-size:13px;">
+                        <thead>
+                            <tr style="border-bottom:1px solid var(--border-color); color:var(--text-muted)">
+                                <th style="padding:10px 8px;">Sub Code</th>
+                                <th style="padding:10px 8px;">Subject Name</th>
+                                <th style="padding:10px 8px;">Exam Date</th>
+                                <th style="padding:10px 8px;">Venue / Room</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom:1px solid var(--border-color)">
+                                <td style="padding:10px 8px; font-weight:600; color:var(--brand-primary)">CS30001</td>
+                                <td style="padding:10px 8px;">Computer Networks</td>
+                                <td style="padding:10px 8px;">Nov 23, 2026 (FN)</td>
+                                <td style="padding:10px 8px;">Nalanda Room 102 & 104</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--border-color)">
+                                <td style="padding:10px 8px; font-weight:600; color:var(--brand-primary)">CS30003</td>
+                                <td style="padding:10px 8px;">DBMS</td>
+                                <td style="padding:10px 8px;">Nov 25, 2026 (FN)</td>
+                                <td style="padding:10px 8px;">Nalanda Room 102 & 104</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--border-color)">
+                                <td style="padding:10px 8px; font-weight:600; color:var(--brand-primary)">CS30005</td>
+                                <td style="padding:10px 8px;">Compilers</td>
+                                <td style="padding:10px 8px;">Nov 27, 2026 (FN)</td>
+                                <td style="padding:10px 8px;">Nalanda Room 201</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Results Review Modal -->
+    <div class="modal-overlay" id="modalResultsReview">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3>Request Results / Grade Review</h3>
+                <button class="modal-close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <p>If you believe there has been a discrepancy in your grade calculations, you can request a departmental recheck here. Fee of ₹500 applies per subject.</p>
+                <form onsubmit="event.preventDefault(); alert('Grade review request submitted successfully for processing.'); this.closest('.modal-overlay').classList.remove('open');">
+                    <div class="form-group">
+                        <label for="reviewSubject">Select Subject for Review</label>
+                        <select id="reviewSubject" class="form-control" required>
+                            <option value="cs30001">CS30001 - Computer Networks (Current Grade: A)</option>
+                            <option value="cs30003">CS30003 - Database Management Systems (Current Grade: Ex)</option>
+                            <option value="cs30005">CS30005 - Compilers (Current Grade: B)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="reviewJustification">Justification / Reason for Review</label>
+                        <textarea id="reviewJustification" class="form-control" rows="4" style="resize:vertical;" placeholder="Please outline the grading sections/questions you wish to get rechecked..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">Submit Review Request</button>
+                </form>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -409,6 +572,37 @@
                 sidebar.classList.remove('active');
             });
         }
+
+        // Modal toggling helper
+        function setupModal(triggerId, modalId) {
+            const trigger = document.getElementById(triggerId);
+            const modal = document.getElementById(modalId);
+            if (trigger && modal) {
+                trigger.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    modal.classList.add('open');
+                });
+                
+                const closeBtn = modal.querySelector('.modal-close');
+                if (closeBtn) {
+                    closeBtn.addEventListener('click', () => {
+                        modal.classList.remove('open');
+                    });
+                }
+                
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) {
+                        modal.classList.remove('open');
+                    }
+                });
+            }
+        }
+
+        setupModal('linkImportantInstructions', 'modalImportantInstructions');
+        setupModal('linkCompleteInstructions', 'modalCompleteInstructions');
+        setupModal('linkCentralTimetable', 'modalCentralTimetable');
+        setupModal('linkDeptTimetable', 'modalDeptTimetable');
+        setupModal('linkResultsReview', 'modalResultsReview');
     </script>
 </body>
 </html>

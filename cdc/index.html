@@ -254,15 +254,15 @@
                             </h3>
                         </div>
                         <div class="action-grid">
-                            <a href="#" class="action-box">
+                            <a href="#" class="action-box" id="cdcReportGrievance">
                                 <i class="fa-solid fa-circle-question"></i>
                                 <span>Report Grievance</span>
                             </a>
-                            <a href="#" class="action-box">
+                            <a href="#" class="action-box" id="cdcRulesGuidelines">
                                 <i class="fa-solid fa-file-shield"></i>
                                 <span>Rules & Guidelines</span>
                             </a>
-                            <a href="#" class="action-box">
+                            <a href="#" class="action-box" id="cdcVerifyCgpa">
                                 <i class="fa-solid fa-user-check"></i>
                                 <span>Verify CGPA/Credits</span>
                             </a>
@@ -276,6 +276,85 @@
                 <p>Copyright &copy; ERP System, IIT Kharagpur. Helpline - 032222-81019/81018/81017</p>
             </footer>
         </main>
+    </div>
+
+    <!-- Modals -->
+    <!-- CDC Report Grievance Modal -->
+    <div class="modal-overlay" id="modalCdcReportGrievance">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3>Submit CDC Placement / Internship Grievance</h3>
+                <button class="modal-close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <p>Submit placement-specific grievances regarding company profiles, test slots, or interview conflicts.</p>
+                <form onsubmit="event.preventDefault(); alert('CDC Grievance submitted successfully. Ticket ID: CDC-TKT-1082.'); this.closest('.modal-overlay').classList.remove('open');">
+                    <div class="form-group">
+                        <label for="cdcGrievanceCompany">Associated Company (Optional)</label>
+                        <input type="text" id="cdcGrievanceCompany" class="form-control" placeholder="e.g. Google India">
+                    </div>
+                    <div class="form-group">
+                        <label for="cdcGrievanceType">Issue Type</label>
+                        <select id="cdcGrievanceType" class="form-control" required>
+                            <option value="schedule">Schedule Conflict (Test/Interview overlapping)</option>
+                            <option value="jd">Job Description / CTC Mismatch</option>
+                            <option value="eligibility">Eligibility / Shortlist Discrepancy</option>
+                            <option value="other">Other Malpractices</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="cdcGrievanceDesc">Provide Detailed Description</label>
+                        <textarea id="cdcGrievanceDesc" class="form-control" rows="4" style="resize:vertical;" placeholder="Explain the grievance..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">Submit Grievance</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- CDC Rules & Guidelines Modal -->
+    <div class="modal-overlay" id="modalCdcRulesGuidelines">
+        <div class="modal-container" style="max-width: 650px;">
+            <div class="modal-header">
+                <h3>CDC Placement Rules & Regulations</h3>
+                <button class="modal-close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <p>All registered students must strictly follow the CDC rules. Violations will lead to immediate debarment:</p>
+                <ul>
+                    <li><strong>One Student One Job Policy</strong>: Once you are selected by a company, you are immediately debarred from applying to any other placement processes. Exception: Dream/Core upgrade option.</li>
+                    <li><strong>Attendance Policy</strong>: 100% attendance is mandatory for pre-placement talks (PPT) and online/offline tests. Absenteeism without prior HMC/CDC permission will result in debarment.</li>
+                    <li><strong>Information Verification</strong>: Any discrepancy in CGPA, credits, or resumes submitted will result in immediate suspension from placements for the academic year.</li>
+                    <li><strong>Interview Etiquette</strong>: Candidates must report in official business attire. Non-attendance of a scheduled interview slot will attract immediate disciplinary action.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- CDC Verify CGPA Modal -->
+    <div class="modal-overlay" id="modalCdcVerifyCgpa">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3>Placement Academic Verification Status</h3>
+                <button class="modal-close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body" style="display:flex; flex-direction:column; gap:16px;">
+                <p>Below is your verified academic data uploaded to the CDC server from the central Academic database:</p>
+                <div style="display:flex; justify-content:space-between; align-items:center; padding:12px; background:var(--brand-bg); border-radius:8px; border:1px solid var(--border-color);">
+                    <span style="font-weight:600; color:var(--text-muted)">Verified CGPA</span>
+                    <span style="font-weight:800; color:var(--brand-primary);">9.15</span>
+                </div>
+                <div style="display:flex; justify-content:space-between; align-items:center; padding:12px; background:var(--brand-bg); border-radius:8px; border:1px solid var(--border-color);">
+                    <span style="font-weight:600; color:var(--text-muted)">Completed Credits</span>
+                    <span style="font-weight:800; color:var(--text-main);">84 / 84 Credits</span>
+                </div>
+                <div style="display:flex; justify-content:space-between; align-items:center; padding:12px; background:var(--brand-bg); border-radius:8px; border:1px solid var(--border-color);">
+                    <span style="font-weight:600; color:var(--text-muted)">Verification Status</span>
+                    <span style="background:var(--accent-green-bg); color:var(--accent-green); padding:4px 8px; border-radius:4px; font-weight:700; font-size:11px;">APPROVED & LOCKED</span>
+                </div>
+                <p style="font-size:12px; color:var(--text-muted);">Note: Academic data is updated once every semester. In case of grade changes, contact the Academic section directly.</p>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -321,6 +400,35 @@
                 sidebar.classList.remove('active');
             });
         }
+
+        // Modal toggling helper
+        function setupModal(triggerId, modalId) {
+            const trigger = document.getElementById(triggerId);
+            const modal = document.getElementById(modalId);
+            if (trigger && modal) {
+                trigger.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    modal.classList.add('open');
+                });
+                
+                const closeBtn = modal.querySelector('.modal-close');
+                if (closeBtn) {
+                    closeBtn.addEventListener('click', () => {
+                        modal.classList.remove('open');
+                    });
+                }
+                
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) {
+                        modal.classList.remove('open');
+                    }
+                });
+            }
+        }
+
+        setupModal('cdcReportGrievance', 'modalCdcReportGrievance');
+        setupModal('cdcRulesGuidelines', 'modalCdcRulesGuidelines');
+        setupModal('cdcVerifyCgpa', 'modalCdcVerifyCgpa');
     </script>
 </body>
 </html>

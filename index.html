@@ -209,19 +209,19 @@
                             </h3>
                         </div>
                         <div class="action-grid">
-                            <a href="#" class="action-box">
+                            <a href="#" class="action-box" id="actionNetworkPassword">
                                 <i class="fa-solid fa-wifi"></i>
                                 <span>Network Password</span>
                             </a>
-                            <a href="#" class="action-box">
+                            <a href="#" class="action-box" id="actionKgpNotices">
                                 <i class="fa-solid fa-bullhorn"></i>
                                 <span>KGP Notices</span>
                             </a>
-                            <a href="#" class="action-box">
+                            <a href="#" class="action-box" id="actionCounselling">
                                 <i class="fa-solid fa-hand-holding-heart"></i>
                                 <span>Counselling</span>
                             </a>
-                            <a href="#" class="action-box">
+                            <a href="#" class="action-box" id="actionGrievance">
                                 <i class="fa-solid fa-headset"></i>
                                 <span>Grievance</span>
                             </a>
@@ -236,6 +236,132 @@
                 <p>Copyright &copy; ERP System, IIT Kharagpur. Helpline - 032222-81019/81018/81017</p>
             </footer>
         </main>
+    </div>
+
+    <!-- Modals -->
+    <!-- Network Password Modal -->
+    <div class="modal-overlay" id="modalNetworkPassword">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3>Campus Network Password Manager</h3>
+                <button class="modal-close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <p>Manage your campus Wi-Fi / LAN network credentials here.</p>
+                <form onsubmit="event.preventDefault(); alert('Password successfully updated!'); this.closest('.modal-overlay').classList.remove('open');">
+                    <div class="form-group">
+                        <label for="currentNetPass">Current Network Password</label>
+                        <input type="password" id="currentNetPass" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="newNetPass">New Network Password</label>
+                        <input type="password" id="newNetPass" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmNetPass">Confirm New Network Password</label>
+                        <input type="password" id="confirmNetPass" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Update Password</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- KGP Notices Modal -->
+    <div class="modal-overlay" id="modalKgpNotices">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3>Apna IIT KGP Notices</h3>
+                <button class="modal-close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body" style="display:flex; flex-direction:column; gap:16px;">
+                <div style="padding:12px; background:var(--brand-bg); border-radius:8px; border:1px solid var(--border-color);">
+                    <span style="font-size:11px; font-weight:700; color:var(--brand-primary); display:block; margin-bottom:4px;">May 25, 2026 - ACADEMIC SECTION</span>
+                    <strong style="display:block; font-size:13px; margin-bottom:4px;">Extension of Spring Semester Registration Deadline</strong>
+                    <span style="font-size:12px; color:var(--text-muted);">Spring Semester registration has been extended up to 31st May 2026. Please complete fee payment and register courses on the Academic portal.</span>
+                </div>
+                <div style="padding:12px; background:var(--brand-bg); border-radius:8px; border:1px solid var(--border-color);">
+                    <span style="font-size:11px; font-weight:700; color:var(--brand-primary); display:block; margin-bottom:4px;">May 24, 2026 - HALL MANAGEMENT CENTRE</span>
+                    <strong style="display:block; font-size:13px; margin-bottom:4px;">Notice regarding Summer Quarter Mess Bookings</strong>
+                    <span style="font-size:12px; color:var(--text-muted);">Students registering for summer quarter can pay food charges at HMC counter from today onwards. Mess will run at Lal Bahadur Shastri Hall.</span>
+                </div>
+                <div style="padding:12px; background:var(--brand-bg); border-radius:8px; border:1px solid var(--border-color);">
+                    <span style="font-size:11px; font-weight:700; color:var(--brand-primary); display:block; margin-bottom:4px;">May 22, 2026 - TECHNOLOGY GUEST HOUSE</span>
+                    <strong style="display:block; font-size:13px; margin-bottom:4px;">Booking closure for Convocation week</strong>
+                    <span style="font-size:12px; color:var(--text-muted);">Technology Guest House bookings will remain closed from July 15th to July 25th for official delegates visiting during the annual convocation.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Counselling Modal -->
+    <div class="modal-overlay" id="modalCounselling">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3>Student Counselling Centre Services</h3>
+                <button class="modal-close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <p>Get in touch with professionals at the Student Counselling Centre. Sessions are strictly confidential.</p>
+                <form onsubmit="event.preventDefault(); alert('Session appointment request received. A counsellor will reach out shortly.'); this.closest('.modal-overlay').classList.remove('open');">
+                    <div class="form-group">
+                        <label for="counsellingReason">Reason for Appointment / Topic</label>
+                        <select id="counsellingReason" class="form-control" required>
+                            <option value="academic">Academic Stress / Time Management</option>
+                            <option value="career">Career / CDC Anxiety</option>
+                            <option value="personal">Personal / Relationship Concerns</option>
+                            <option value="other">General Well-being & Wellness Check</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="preferredDate">Preferred Date</label>
+                        <input type="date" id="preferredDate" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="preferredSlot">Preferred Time Slot</label>
+                        <select id="preferredSlot" class="form-control" required>
+                            <option value="morning">Morning (10:00 AM - 12:00 PM)</option>
+                            <option value="afternoon">Afternoon (02:00 PM - 04:00 PM)</option>
+                            <option value="evening">Evening (05:00 PM - 07:00 PM)</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-primary">Request Session Appointment</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Grievance Modal -->
+    <div class="modal-overlay" id="modalGrievance">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3>Submit General / ERP Grievance</h3>
+                <button class="modal-close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <p>Please enter details of your grievance. Submissions are routed to the ERP technical cell or administrative cell.</p>
+                <form onsubmit="event.preventDefault(); alert('Grievance ticket created successfully. ID: TKT-299382.'); this.closest('.modal-overlay').classList.remove('open');">
+                    <div class="form-group">
+                        <label for="grievanceType">Category</label>
+                        <select id="grievanceType" class="form-control" required>
+                            <option value="erp">ERP Portal Glitch / Bugs</option>
+                            <option value="academic">Academic Registration / Grades Error</option>
+                            <option value="accommodation">Hostel Mess / Room Facility Grievance</option>
+                            <option value="other">Other Administrative Concerns</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="grievanceTitle">Subject</label>
+                        <input type="text" id="grievanceTitle" class="form-control" placeholder="Short description of the issue" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="grievanceDetails">Detailed Grievance Description</label>
+                        <textarea id="grievanceDetails" class="form-control" rows="4" style="resize:vertical;" placeholder="Please explain the issue in detail..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">Submit Grievance</button>
+                </form>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -281,6 +407,36 @@
                 sidebar.classList.remove('active');
             });
         }
+
+        // Modal toggling helper
+        function setupModal(triggerId, modalId) {
+            const trigger = document.getElementById(triggerId);
+            const modal = document.getElementById(modalId);
+            if (trigger && modal) {
+                trigger.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    modal.classList.add('open');
+                });
+                
+                const closeBtn = modal.querySelector('.modal-close');
+                if (closeBtn) {
+                    closeBtn.addEventListener('click', () => {
+                        modal.classList.remove('open');
+                    });
+                }
+                
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) {
+                        modal.classList.remove('open');
+                    }
+                });
+            }
+        }
+        
+        setupModal('actionNetworkPassword', 'modalNetworkPassword');
+        setupModal('actionKgpNotices', 'modalKgpNotices');
+        setupModal('actionCounselling', 'modalCounselling');
+        setupModal('actionGrievance', 'modalGrievance');
     </script>
 </body>
 </html>

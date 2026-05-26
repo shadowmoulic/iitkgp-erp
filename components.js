@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
             
             <nav class="sidebar-menu">
-                <a href="${pathPrefix}index.html" class="menu-item ${isDashboard ? 'active' : ''}">
+                <a href="${pathPrefix}dashboard/index.html" class="menu-item ${isDashboard ? 'active' : ''}">
                     <i class="fa-solid fa-house"></i>
                     <span>Dashboard</span>
                 </a>

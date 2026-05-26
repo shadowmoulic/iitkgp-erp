@@ -1135,3 +1135,117 @@ body {
 .modal-body li {
     margin-bottom: 6px;
 }
+
+/* Global Search Dropdown */
+.search-results-dropdown {
+    position: absolute;
+    top: 50px;
+    left: 45px;
+    width: 350px;
+    background: var(--panel-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    box-shadow: var(--shadow-lg);
+    z-index: 1000;
+    max-height: 400px;
+    overflow-y: auto;
+    display: none;
+    flex-direction: column;
+    padding: 8px 0;
+}
+
+.search-results-dropdown.active {
+    display: flex;
+}
+
+.search-result-item {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 16px;
+    text-decoration: none;
+    color: var(--text-main);
+    border-bottom: 1px solid var(--border-color);
+    transition: var(--transition-fast);
+}
+
+.search-result-item:last-child {
+    border-bottom: none;
+}
+
+.search-result-item:hover {
+    background: var(--brand-primary-bg);
+}
+
+.search-result-title {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--brand-primary);
+    margin-bottom: 4px;
+}
+
+.search-result-desc {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.search-empty {
+    padding: 16px;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 13px;
+}
+
+/* Print Styles */
+@media print {
+    /* Hide UI elements */
+    #sidebar-placeholder, .sidebar, 
+    #topnav-placeholder, .top-nav, 
+    .perf-sidebar, .btn-primary, 
+    .bg-blob, #footer-placeholder {
+        display: none !important;
+    }
+
+    /* Reset layouts for print */
+    body, .dashboard, .main-area, .content-area, .perf-layout {
+        display: block !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        max-width: none !important;
+        height: auto !important;
+        overflow: visible !important;
+        background: white !important;
+    }
+
+    .perf-table-container, .summary-card, .stat-badge {
+        box-shadow: none !important;
+        border: 1px solid #ccc !important;
+        break-inside: avoid;
+    }
+
+    .hero-banner {
+        box-shadow: none !important;
+        border-bottom: 2px solid #000 !important;
+        margin-bottom: 20px !important;
+        padding: 0 !important;
+    }
+    
+    .hero-banner h1 {
+        color: #000 !important;
+    }
+
+    /* Ensure tables break cleanly */
+    .perf-table {
+        page-break-inside: auto;
+    }
+    .perf-table tr {
+        page-break-inside: avoid;
+        page-break-after: auto;
+    }
+
+    /* Force background colors on badges */
+    .grade-badge, .stat-badge, .perf-table th {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+}

@@ -30,7 +30,7 @@
         }
 
         .perf-nav-item {
-            padding: 12px 6px;
+            padding: 12px 16px;
             font-size: 13px;
             color: var(--text-main);
             text-decoration: none;
@@ -87,15 +87,16 @@
         }
 
         .perf-table th {
-            padding: 12px 6px;
+            padding: 12px 16px;
             background: var(--brand-bg);
             color: var(--text-muted);
             font-weight: 700;
             border-bottom: 1px solid var(--border-color);
+            white-space: nowrap;
         }
 
         .perf-table td {
-            padding: 12px 6px;
+            padding: 12px 16px;
             border-bottom: 1px solid var(--border-color);
             color: var(--text-main);
         }
@@ -213,6 +214,7 @@
             font-weight: 700;
             margin-bottom: 4px;
             display: block;
+            cursor: help;
         }
 
         .stat-badge .val {
@@ -236,6 +238,19 @@
                 border-bottom: none;
                 border-right: 1px solid var(--border-color);
             }
+        }
+        
+        .sem-content {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+        .sem-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
@@ -263,8 +278,7 @@
                             You are in: <a href="index.html"
                                 style="color:var(--brand-primary-light); text-decoration:none;">Academic</a> / <a
                                 href="academic-information.html"
-                                style="color:var(--brand-primary-light); text-decoration:none;">Students</a> /
-                            Performance
+                                style="color:var(--brand-primary-light); text-decoration:none;">Students</a> / Performance
                             Record
                         </div>
                         <h1>Student Performance Details</h1>
@@ -279,8 +293,8 @@
                         <a href="#" class="perf-nav-item">Curricula Subject Details</a>
                         <a href="#" class="perf-nav-item">Curricula Summary</a>
                         <a href="#" class="perf-nav-item">Performance Summary</a>
-                        <a href="#" class="perf-nav-item">Curr. and Perf. Semno 1</a>
-                        <a href="#" class="perf-nav-item active">Curr. and Perf. Semno 2</a>
+                        <a href="#" class="perf-nav-item" id="nav-sem-1" onclick="switchSem(1); return false;">Curr. and Perf. Semno 1</a>
+                        <a href="#" class="perf-nav-item active" id="nav-sem-2" onclick="switchSem(2); return false;">Curr. and Perf. Semno 2</a>
                         <a href="#" class="perf-nav-item">Curr. and Perf. Semno 3</a>
                         <a href="#" class="perf-nav-item">Curr. and Perf. Semno 4</a>
                         <a href="#" class="perf-nav-item">Curr. and Perf. Semno 5</a>
@@ -291,187 +305,374 @@
 
                     <!-- Main Data View -->
                     <div class="perf-content">
+                        
+                        <!-- SEMESTER 2 CONTENT -->
+                        <div id="content-sem-2" class="sem-content active">
+                            <div class="perf-table-container">
+                                <div class="perf-table-header">
+                                    <h3>Curricula and Performance Details of Semester 2</h3>
+                                    <button class="btn-primary" style="padding:6px 12px; font-size:12px;" onclick="window.print()"><i
+                                            class="fa-solid fa-print"></i> Print</button>
+                                </div>
 
-                        <div class="perf-table-container">
-                            <div class="perf-table-header">
-                                <h3>Curricula and Performance Details of Semester 2</h3>
-                                <button class="btn-primary" style="padding:6px 12px; font-size:12px;"><i
-                                        class="fa-solid fa-print"></i> Print</button>
+                                <!-- Subject Counts Bento -->
+                                <div class="summary-grid">
+                                    <div class="summary-card">
+                                        <div class="label">Depth CORE</div>
+                                        <div class="value">9 - 9</div>
+                                        <div style="font-size:11px; color:var(--text-muted); margin-top:4px;">Cum: 18 - 18</div>
+                                    </div>
+                                    <div class="summary-card">
+                                        <div class="label">Depth Elective</div>
+                                        <div class="value">0 - 0</div>
+                                        <div style="font-size:11px; color:var(--text-muted); margin-top:4px;">Cum: 0 - 0</div>
+                                    </div>
+                                    <div class="summary-card">
+                                        <div class="label">Depth/Breadth Elec.</div>
+                                        <div class="value">0 - 0</div>
+                                        <div style="font-size:11px; color:var(--text-muted); margin-top:4px;">Cum: 0 - 0</div>
+                                    </div>
+                                    <div class="summary-card">
+                                        <div class="label">HSS-Breadth</div>
+                                        <div class="value">0 - 0</div>
+                                        <div style="font-size:11px; color:var(--text-muted); margin-top:4px;">Cum: 0 - 0</div>
+                                    </div>
+                                </div>
+
+                                <!-- Subject List Table -->
+                                <div class="table-responsive">
+                                    <table class="perf-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Subno</th>
+                                                <th>Subject Name</th>
+                                                <th>Sub. Type</th>
+                                                <th>L-T-P</th>
+                                                <th>Credit</th>
+                                                <th>Reg. Sem</th>
+                                                <th>Session</th>
+                                                <th>Grade</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td style="font-weight:600; color:var(--brand-primary);">LS10001</td>
+                                                <td>LIFE SKILL</td>
+                                                <td>Depth CORE</td>
+                                                <td>0-0-0</td>
+                                                <td>1</td>
+                                                <td>2</td>
+                                                <td>SP-25-26 (P)</td>
+                                                <td><span class="grade-badge grade-ex">EX</span></td>
+                                                <td><i class="fa-solid fa-check status-clear"></i></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-weight:600; color:var(--brand-primary);">MA11004</td>
+                                                <td>LINEAR ALGEBRA, NUMERICAL AND COMPLEX ANALYSIS</td>
+                                                <td>Depth CORE</td>
+                                                <td>3-1-0</td>
+                                                <td>4</td>
+                                                <td>2</td>
+                                                <td>SP-25-26 (P)</td>
+                                                <td><span class="grade-badge grade-c">C</span></td>
+                                                <td><i class="fa-solid fa-check status-clear"></i></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-weight:600; color:var(--brand-primary);">CY11003</td>
+                                                <td>CHEMISTRY</td>
+                                                <td>Depth CORE</td>
+                                                <td>3-1-0</td>
+                                                <td>4</td>
+                                                <td>2</td>
+                                                <td>SP-25-26 (P)</td>
+                                                <td><span class="grade-badge grade-d">D</span></td>
+                                                <td><i class="fa-solid fa-check status-clear"></i></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-weight:600; color:var(--brand-primary);">CY19003</td>
+                                                <td>CHEMISTRY LABORATORY</td>
+                                                <td>Depth CORE</td>
+                                                <td>0-0-3</td>
+                                                <td>2</td>
+                                                <td>2</td>
+                                                <td>SP-25-26 (P)</td>
+                                                <td><span class="grade-badge grade-a">A</span></td>
+                                                <td><i class="fa-solid fa-check status-clear"></i></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-weight:600; color:var(--brand-primary);">EE11003</td>
+                                                <td>ELECTRICAL TECHNOLOGY</td>
+                                                <td>Depth CORE</td>
+                                                <td>3-1-0</td>
+                                                <td>4</td>
+                                                <td>2</td>
+                                                <td>SP-25-26 (P)</td>
+                                                <td><span class="grade-badge grade-c">C</span></td>
+                                                <td><i class="fa-solid fa-check status-clear"></i></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-weight:600; color:var(--brand-primary);">EN19003</td>
+                                                <td>ENGINEERING LABORATORY</td>
+                                                <td>Depth CORE</td>
+                                                <td>0-0-3</td>
+                                                <td>2</td>
+                                                <td>2</td>
+                                                <td>SP-25-26 (P)</td>
+                                                <td><span class="grade-badge grade-d">D</span></td>
+                                                <td><i class="fa-solid fa-check status-clear"></i></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-weight:600; color:var(--brand-primary);">ME11003</td>
+                                                <td>BASIC ENGINEERING MECHANICS</td>
+                                                <td>Depth CORE</td>
+                                                <td>3-1-0</td>
+                                                <td>4</td>
+                                                <td>2</td>
+                                                <td>SP-25-26 (P)</td>
+                                                <td><span class="grade-badge grade-d">D</span></td>
+                                                <td><i class="fa-solid fa-check status-clear"></i></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-weight:600; color:var(--brand-primary);">PH19004</td>
+                                                <td>INTERACTIVE PHYSICS LABORATORY</td>
+                                                <td>Depth CORE</td>
+                                                <td>0-0-3</td>
+                                                <td>2</td>
+                                                <td>2</td>
+                                                <td>SP-25-26 (P)</td>
+                                                <td><span class="grade-badge grade-ex">EX</span></td>
+                                                <td><i class="fa-solid fa-check status-clear"></i></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-weight:600; color:var(--brand-primary);">EA10006</td>
+                                                <td>EXTRA ACADEMIC ACTIVITY II</td>
+                                                <td>Depth CORE</td>
+                                                <td>0-0-3</td>
+                                                <td>1</td>
+                                                <td>2</td>
+                                                <td>SP-25-26 (P)</td>
+                                                <td><span class="grade-badge grade-ex">EX</span></td>
+                                                <td><i class="fa-solid fa-check status-clear"></i></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
 
-                            <!-- Subject Counts Bento -->
-                            <div class="summary-grid">
-                                <div class="summary-card">
-                                    <div class="label">Depth CORE</div>
-                                    <div class="value">9 - 9</div>
-                                    <div style="font-size:11px; color:var(--text-muted); margin-top:4px;">Cum: 18 - 18
-                                    </div>
+                            <!-- Footer Summary -->
+                            <h4 style="color:var(--text-main); margin-bottom:12px;">Semester 2 Summary</h4>
+                            <div class="perf-footer-stats">
+                                <div class="stat-badge">
+                                    <span class="label">TCR - TCT - TCC <i class="fa-solid fa-circle-info" title="Total Credits Registered - Total Credits Taken - Total Credits Cleared"></i></span>
+                                    <span class="val">46 - 46</span>
                                 </div>
-                                <div class="summary-card">
-                                    <div class="label">Depth Elective</div>
-                                    <div class="value">0 - 0</div>
-                                    <div style="font-size:11px; color:var(--text-muted); margin-top:4px;">Cum: 0 - 0
-                                    </div>
+                                <div class="stat-badge">
+                                    <span class="label">SCR - SCT - SCC <i class="fa-solid fa-circle-info" title="Semester Credits Registered - Semester Credits Taken - Semester Credits Cleared"></i></span>
+                                    <span class="val">24 - 24</span>
                                 </div>
-                                <div class="summary-card">
-                                    <div class="label">Depth/Breadth Elec.</div>
-                                    <div class="value">0 - 0</div>
-                                    <div style="font-size:11px; color:var(--text-muted); margin-top:4px;">Cum: 0 - 0
-                                    </div>
+                                <div class="stat-badge" style="background:rgba(59,130,246,0.1); border-color:rgba(59,130,246,0.2);">
+                                    <span class="label" style="color:var(--brand-primary);">NCGPA - CGPA - SGPA <i class="fa-solid fa-circle-info" title="Notional CGPA - Cumulative GPA - Semester GPA"></i></span>
+                                    <span class="val" style="color:var(--brand-primary-light);">7.41 - 7.41 - 7.25</span>
                                 </div>
-                                <div class="summary-card">
-                                    <div class="label">HSS-Breadth</div>
-                                    <div class="value">0 - 0</div>
-                                    <div style="font-size:11px; color:var(--text-muted); margin-top:4px;">Cum: 0 - 0
-                                    </div>
+                                <div class="stat-badge">
+                                    <span class="label">ATCT - ATCC <i class="fa-solid fa-circle-info" title="Additional Total Credits Taken - Additional Total Credits Cleared"></i></span>
+                                    <span class="val">0 - 0</span>
                                 </div>
-                            </div>
-
-                            <!-- Subject List Table -->
-                            <div class="table-responsive">
-                                <table class="perf-table">
-                                    <thead>
-                                        <tr>
-                                            <th>Subno</th>
-                                            <th>Subject Name</th>
-                                            <th>Sub. Type</th>
-                                            <th>L-T-P</th>
-                                            <th>Credit</th>
-                                            <th>Reg. Sem</th>
-                                            <th>Session</th>
-                                            <th>Grade</th>
-                                            <th>Status</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td style="font-weight:600; color:var(--brand-primary);">LS10001</td>
-                                            <td>LIFE SKILL</td>
-                                            <td>Depth CORE</td>
-                                            <td>0-0-0</td>
-                                            <td>1</td>
-                                            <td>2</td>
-                                            <td>SP-25-26 (P)</td>
-                                            <td><span class="grade-badge grade-ex">EX</span></td>
-                                            <td><i class="fa-solid fa-check status-clear"></i></td>
-                                        </tr>
-                                        <tr>
-                                            <td style="font-weight:600; color:var(--brand-primary);">MA11004</td>
-                                            <td>LINEAR ALGEBRA, NUMERICAL AND COMPLEX ANALYSIS</td>
-                                            <td>Depth CORE</td>
-                                            <td>3-1-0</td>
-                                            <td>4</td>
-                                            <td>2</td>
-                                            <td>SP-25-26 (P)</td>
-                                            <td><span class="grade-badge grade-c">C</span></td>
-                                            <td><i class="fa-solid fa-check status-clear"></i></td>
-                                        </tr>
-                                        <tr>
-                                            <td style="font-weight:600; color:var(--brand-primary);">CY11003</td>
-                                            <td>CHEMISTRY</td>
-                                            <td>Depth CORE</td>
-                                            <td>3-1-0</td>
-                                            <td>4</td>
-                                            <td>2</td>
-                                            <td>SP-25-26 (P)</td>
-                                            <td><span class="grade-badge grade-d">D</span></td>
-                                            <td><i class="fa-solid fa-check status-clear"></i></td>
-                                        </tr>
-                                        <tr>
-                                            <td style="font-weight:600; color:var(--brand-primary);">CY19003</td>
-                                            <td>CHEMISTRY LABORATORY</td>
-                                            <td>Depth CORE</td>
-                                            <td>0-0-3</td>
-                                            <td>2</td>
-                                            <td>2</td>
-                                            <td>SP-25-26 (P)</td>
-                                            <td><span class="grade-badge grade-a">A</span></td>
-                                            <td><i class="fa-solid fa-check status-clear"></i></td>
-                                        </tr>
-                                        <tr>
-                                            <td style="font-weight:600; color:var(--brand-primary);">EE11003</td>
-                                            <td>ELECTRICAL TECHNOLOGY</td>
-                                            <td>Depth CORE</td>
-                                            <td>3-1-0</td>
-                                            <td>4</td>
-                                            <td>2</td>
-                                            <td>SP-25-26 (P)</td>
-                                            <td><span class="grade-badge grade-c">C</span></td>
-                                            <td><i class="fa-solid fa-check status-clear"></i></td>
-                                        </tr>
-                                        <tr>
-                                            <td style="font-weight:600; color:var(--brand-primary);">EN19003</td>
-                                            <td>ENGINEERING LABORATORY</td>
-                                            <td>Depth CORE</td>
-                                            <td>0-0-3</td>
-                                            <td>2</td>
-                                            <td>2</td>
-                                            <td>SP-25-26 (P)</td>
-                                            <td><span class="grade-badge grade-d">D</span></td>
-                                            <td><i class="fa-solid fa-check status-clear"></i></td>
-                                        </tr>
-                                        <tr>
-                                            <td style="font-weight:600; color:var(--brand-primary);">ME11003</td>
-                                            <td>BASIC ENGINEERING MECHANICS</td>
-                                            <td>Depth CORE</td>
-                                            <td>3-1-0</td>
-                                            <td>4</td>
-                                            <td>2</td>
-                                            <td>SP-25-26 (P)</td>
-                                            <td><span class="grade-badge grade-d">D</span></td>
-                                            <td><i class="fa-solid fa-check status-clear"></i></td>
-                                        </tr>
-                                        <tr>
-                                            <td style="font-weight:600; color:var(--brand-primary);">PH19004</td>
-                                            <td>INTERACTIVE PHYSICS LABORATORY</td>
-                                            <td>Depth CORE</td>
-                                            <td>0-0-3</td>
-                                            <td>2</td>
-                                            <td>2</td>
-                                            <td>SP-25-26 (P)</td>
-                                            <td><span class="grade-badge grade-ex">EX</span></td>
-                                            <td><i class="fa-solid fa-check status-clear"></i></td>
-                                        </tr>
-                                        <tr>
-                                            <td style="font-weight:600; color:var(--brand-primary);">EA10006</td>
-                                            <td>EXTRA ACADEMIC ACTIVITY II</td>
-                                            <td>Depth CORE</td>
-                                            <td>0-0-3</td>
-                                            <td>1</td>
-                                            <td>2</td>
-                                            <td>SP-25-26 (P)</td>
-                                            <td><span class="grade-badge grade-ex">EX</span></td>
-                                            <td><i class="fa-solid fa-check status-clear"></i></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                <div class="stat-badge">
+                                    <span class="label">ASCT - ASCC <i class="fa-solid fa-circle-info" title="Additional Semester Credits Taken - Additional Semester Credits Cleared"></i></span>
+                                    <span class="val">0 - 0</span>
+                                </div>
                             </div>
                         </div>
 
-                        <!-- Footer Summary -->
-                        <h4 style="color:var(--text-main); margin-bottom:12px;">Semester 2 Summary</h4>
-                        <div class="perf-footer-stats">
-                            <div class="stat-badge">
-                                <span class="label">TCR - TCT - TCC <i class="fa-solid fa-circle-info"></i></span>
-                                <span class="val">46 - 46</span>
+                        <!-- SEMESTER 1 CONTENT -->
+                        <div id="content-sem-1" class="sem-content">
+                            <div class="perf-table-container">
+                                <div class="perf-table-header">
+                                    <h3>Curricula and Performance Details of Semester 1</h3>
+                                    <button class="btn-primary" style="padding:6px 12px; font-size:12px;" onclick="window.print()"><i class="fa-solid fa-print"></i> Print</button>
+                                </div>
+                                
+                                <div class="summary-grid">
+                                    <div class="summary-card">
+                                        <div class="label">Depth CORE</div>
+                                        <div class="value">9 - 9 - 9</div>
+                                        <div style="font-size:11px; color:var(--text-muted); margin-top:4px;">Cum: 9 - 9 - 9</div>
+                                    </div>
+                                    <div class="summary-card">
+                                        <div class="label">Depth Elective</div>
+                                        <div class="value">0 - 0 - 0</div>
+                                        <div style="font-size:11px; color:var(--text-muted); margin-top:4px;">Cum: 0 - 0 - 0</div>
+                                    </div>
+                                    <div class="summary-card">
+                                        <div class="label">Depth/Breadth Elec.</div>
+                                        <div class="value">0 - 0 - 0</div>
+                                        <div style="font-size:11px; color:var(--text-muted); margin-top:4px;">Cum: 0 - 0 - 0</div>
+                                    </div>
+                                    <div class="summary-card">
+                                        <div class="label">Breadth Elective</div>
+                                        <div class="value">0 - 0 - 0</div>
+                                        <div style="font-size:11px; color:var(--text-muted); margin-top:4px;">Cum: 0 - 0 - 0</div>
+                                    </div>
+                                    <div class="summary-card">
+                                        <div class="label">HSS-Breadth</div>
+                                        <div class="value">0 - 0 - 0</div>
+                                        <div style="font-size:11px; color:var(--text-muted); margin-top:4px;">Cum: 0 - 0 - 0</div>
+                                    </div>
+                                    <div class="summary-card">
+                                        <div class="label">Project</div>
+                                        <div class="value">0 - 0 - 0</div>
+                                        <div style="font-size:11px; color:var(--text-muted); margin-top:4px;">Cum: 0 - 0 - 0</div>
+                                    </div>
+                                </div>
+
+                                <div class="table-responsive">
+                                    <table class="perf-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Subno</th>
+                                                <th>Subject Name</th>
+                                                <th>Sub. Type</th>
+                                                <th>L-T-P</th>
+                                                <th>Credit</th>
+                                                <th>Reg. Sem</th>
+                                                <th>Session</th>
+                                                <th>Grade</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td style="font-weight:600; color:var(--brand-primary);">GE10001</td>
+                                                <td>GENDER SENSITIZATION</td>
+                                                <td>Depth CORE</td>
+                                                <td>0-0-0</td>
+                                                <td>0</td>
+                                                <td>1</td>
+                                                <td>AU-25-26 (P)</td>
+                                                <td><span class="grade-badge grade-p">P</span></td>
+                                                <td><i class="fa-solid fa-check status-clear"></i></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-weight:600; color:var(--brand-primary);">MA11003</td>
+                                                <td>ADVANCED CALCULUS</td>
+                                                <td>Depth CORE</td>
+                                                <td>3-1-0</td>
+                                                <td>4</td>
+                                                <td>1</td>
+                                                <td>AU-25-26 (P)</td>
+                                                <td><span class="grade-badge grade-c">C</span></td>
+                                                <td><i class="fa-solid fa-check status-clear"></i></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-weight:600; color:var(--brand-primary);">PH11003</td>
+                                                <td>PHYSICS OF WAVES</td>
+                                                <td>Depth CORE</td>
+                                                <td>3-1-0</td>
+                                                <td>4</td>
+                                                <td>1</td>
+                                                <td>AU-25-26 (P)</td>
+                                                <td><span class="grade-badge grade-c">C</span></td>
+                                                <td><i class="fa-solid fa-check status-clear"></i></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-weight:600; color:var(--brand-primary);">PH19003</td>
+                                                <td>PHYSICS LABORATORY</td>
+                                                <td>Depth CORE</td>
+                                                <td>0-0-3</td>
+                                                <td>2</td>
+                                                <td>1</td>
+                                                <td>AU-25-26 (P)</td>
+                                                <td><span class="grade-badge grade-a">A</span></td>
+                                                <td><i class="fa-solid fa-check status-clear"></i></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-weight:600; color:var(--brand-primary);">EC21201</td>
+                                                <td>BASIC ELECTRONICS</td>
+                                                <td>Depth CORE</td>
+                                                <td>3-1-0</td>
+                                                <td>4</td>
+                                                <td>1</td>
+                                                <td>AU-25-26 (P)</td>
+                                                <td><span class="grade-badge grade-b">B</span></td>
+                                                <td><i class="fa-solid fa-check status-clear"></i></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-weight:600; color:var(--brand-primary);">EC29201</td>
+                                                <td>BASIC ELECTRONICS LABORATORY</td>
+                                                <td>Depth CORE</td>
+                                                <td>0-0-3</td>
+                                                <td>2</td>
+                                                <td>1</td>
+                                                <td>AU-25-26 (P)</td>
+                                                <td><span class="grade-badge grade-a">A</span></td>
+                                                <td><i class="fa-solid fa-check status-clear"></i></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-weight:600; color:var(--brand-primary);">CS10003</td>
+                                                <td>PROGRAMMING AND DATA STRUCTURES</td>
+                                                <td>Depth CORE</td>
+                                                <td>3-0-0</td>
+                                                <td>3</td>
+                                                <td>1</td>
+                                                <td>AU-25-26 (P)</td>
+                                                <td><span class="grade-badge grade-d">D</span></td>
+                                                <td><i class="fa-solid fa-check status-clear"></i></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-weight:600; color:var(--brand-primary);">CS19003</td>
+                                                <td>PROGRAMMING AND DATA STRUCTURES LABORATORY</td>
+                                                <td>Depth CORE</td>
+                                                <td>0-0-3</td>
+                                                <td>2</td>
+                                                <td>1</td>
+                                                <td>AU-25-26 (P)</td>
+                                                <td><span class="grade-badge grade-b">B</span></td>
+                                                <td><i class="fa-solid fa-check status-clear"></i></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-weight:600; color:var(--brand-primary);">EA10007</td>
+                                                <td>EXTRA ACADEMIC ACTIVITY-I</td>
+                                                <td>Depth CORE</td>
+                                                <td>0-0-3</td>
+                                                <td>1</td>
+                                                <td>1</td>
+                                                <td>AU-25-26 (P)</td>
+                                                <td><span class="grade-badge grade-a">A</span></td>
+                                                <td><i class="fa-solid fa-check status-clear"></i></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
-                            <div class="stat-badge">
-                                <span class="label">SCR - SCT - SCC <i class="fa-solid fa-circle-info"></i></span>
-                                <span class="val">24 - 24</span>
-                            </div>
-                            <div class="stat-badge"
-                                style="background:rgba(59,130,246,0.1); border-color:rgba(59,130,246,0.2);">
-                                <span class="label" style="color:var(--brand-primary);">NCGPA - CGPA - SGPA <i
-                                        class="fa-solid fa-circle-info"></i></span>
-                                <span class="val" style="color:var(--brand-primary-light);">7.41 - 7.41 - 7.25</span>
-                            </div>
-                            <div class="stat-badge">
-                                <span class="label">ATCT - ATCC <i class="fa-solid fa-circle-info"></i></span>
-                                <span class="val">0 - 0</span>
-                            </div>
-                            <div class="stat-badge">
-                                <span class="label">ASCT - ASCC <i class="fa-solid fa-circle-info"></i></span>
-                                <span class="val">0 - 0</span>
+
+                            <h4 style="color:var(--text-main); margin-bottom:12px;">Semester 1 Summary</h4>
+                            <div class="perf-footer-stats">
+                                <div class="stat-badge">
+                                    <span class="label">TCR - TCT - TCC <i class="fa-solid fa-circle-info" title="Total Credits Registered - Total Credits Taken - Total Credits Cleared"></i></span>
+                                    <span class="val">22 - 22</span>
+                                </div>
+                                <div class="stat-badge">
+                                    <span class="label">SCR - SCT - SCC <i class="fa-solid fa-circle-info" title="Semester Credits Registered - Semester Credits Taken - Semester Credits Cleared"></i></span>
+                                    <span class="val">22 - 22</span>
+                                </div>
+                                <div class="stat-badge" style="background:rgba(59,130,246,0.1); border-color:rgba(59,130,246,0.2);">
+                                    <span class="label" style="color:var(--brand-primary);">NCGPA - CGPA - SGPA <i class="fa-solid fa-circle-info" title="Notional CGPA - Cumulative GPA - Semester GPA"></i></span>
+                                    <span class="val" style="color:var(--brand-primary-light);">7.59 - 7.59 - 7.59</span>
+                                </div>
+                                <div class="stat-badge">
+                                    <span class="label">ATCT - ATCC <i class="fa-solid fa-circle-info" title="Additional Total Credits Taken - Additional Total Credits Cleared"></i></span>
+                                    <span class="val">0 - 0</span>
+                                </div>
+                                <div class="stat-badge">
+                                    <span class="label">ASCT - ASCC <i class="fa-solid fa-circle-info" title="Additional Semester Credits Taken - Additional Semester Credits Cleared"></i></span>
+                                    <span class="val">0 - 0</span>
+                                </div>
+                                <div class="stat-badge">
+                                    <span class="label">ACGPA - ASGPA <i class="fa-solid fa-circle-info" title="Additional Cumulative GPA - Additional Semester GPA"></i></span>
+                                    <span class="val">0.00 - 0.00</span>
+                                </div>
                             </div>
                         </div>
 
@@ -484,6 +685,20 @@
             <div id="footer-placeholder"></div>
         </main>
     </div>
+
+    <script>
+        function switchSem(semNum) {
+            // Update sidebar nav items
+            document.querySelectorAll('.perf-nav-item').forEach(item => item.classList.remove('active'));
+            const activeNav = document.getElementById('nav-sem-' + semNum);
+            if (activeNav) activeNav.classList.add('active');
+
+            // Hide all semester contents, show the selected one
+            document.querySelectorAll('.sem-content').forEach(content => content.classList.remove('active'));
+            const activeContent = document.getElementById('content-sem-' + semNum);
+            if (activeContent) activeContent.classList.add('active');
+        }
+    </script>
 </body>
 
 </html>

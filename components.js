@@ -105,9 +105,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 <button class="menu-btn" id="openSidebar" aria-label="Open sidebar">
                     <i class="fa-solid fa-bars"></i>
                 </button>
-                <div class="search-box">
+                <div class="search-box" style="position: relative;">
                     <i class="fa-solid fa-search"></i>
-                    <input type="text" placeholder="${searchPlaceholder}">
+                    <input type="text" id="globalSearchInput" placeholder="${searchPlaceholder}" autocomplete="off">
+                    <div class="search-results-dropdown" id="globalSearchResults"></div>
                 </div>
             </div>
 
@@ -579,6 +580,62 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             closeSidebar.addEventListener('click', () => {
                 sidebar.classList.remove('active');
+            });
+        }
+
+        // Global Search Logic
+        const searchInput = document.getElementById('globalSearchInput');
+        const searchResults = document.getElementById('globalSearchResults');
+
+        if (searchInput && searchResults) {
+            const pages = [
+                { title: 'Dashboard', url: 'index.html', desc: 'Main ERP home page' },
+                { title: 'Academic Information', url: 'academic/academic-information.html', desc: 'Student profile and documents' },
+                { title: 'Performance Record', url: 'academic/performance.html', desc: 'Semester grades and curricula' },
+                { title: 'Registration & Academics', url: 'academic/index.html', desc: 'UG/PG Modules and Time Table' },
+                { title: 'Guest House Booking', url: 'accommodation/guest-house.html', desc: 'Search availability and book rooms' },
+                { title: 'Accommodation Dashboard', url: 'accommodation/index.html', desc: 'Guest house portal home' },
+                { title: 'Accounts & Payments', url: 'accounts/index.html', desc: 'Pay fees and view dues' },
+                { title: 'CDC Placement', url: 'cdc/index.html', desc: 'Career Development Centre portal' }
+            ];
+
+            searchInput.addEventListener('input', (e) => {
+                const val = e.target.value.toLowerCase().trim();
+                searchResults.innerHTML = '';
+                
+                if (val.length === 0) {
+                    searchResults.classList.remove('active');
+                    return;
+                }
+
+                const filtered = pages.filter(p => 
+                    p.title.toLowerCase().includes(val) || 
+                    p.desc.toLowerCase().includes(val)
+                );
+
+                if (filtered.length > 0) {
+                    filtered.forEach(p => {
+                        const a = document.createElement('a');
+                        a.href = pathPrefix + p.url;
+                        a.className = 'search-result-item';
+                        a.innerHTML = `
+                            <span class="search-result-title">${p.title}</span>
+                            <span class="search-result-desc">${p.desc}</span>
+                        `;
+                        searchResults.appendChild(a);
+                    });
+                } else {
+                    searchResults.innerHTML = '<div class="search-empty">No results found for "' + val + '"</div>';
+                }
+                
+                searchResults.classList.add('active');
+            });
+
+            // Hide dropdown when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.search-box')) {
+                    searchResults.classList.remove('active');
+                }
             });
         }
     }, 0);

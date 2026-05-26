@@ -461,6 +461,117 @@ body {
     margin: 4px 0;
 }
 
+/* Top Nav Dropdowns for Mail and Notifications */
+.topnav-dropdown-wrapper {
+    position: relative;
+}
+
+.topnav-dropdown-wrapper .dropdown-content {
+    width: 320px;
+    padding: 12px;
+}
+
+.topnav-dropdown-wrapper.open .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-header-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-main);
+    padding: 4px 8px 8px 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.message-item, .notification-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    padding: 10px !important;
+    border-radius: 8px;
+    margin-bottom: 6px;
+    border: 1px solid transparent;
+    background: transparent;
+}
+
+.message-item:hover, .notification-item:hover {
+    background: var(--brand-primary-bg) !important;
+    border-color: rgba(59, 130, 246, 0.1);
+}
+
+.message-meta {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 11px;
+}
+
+.message-meta strong {
+    color: var(--brand-primary);
+}
+
+.message-time {
+    color: var(--text-muted);
+}
+
+.message-subject {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.message-preview {
+    font-size: 11px;
+    color: var(--text-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+
+.notification-item {
+    flex-direction: row !important;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.notification-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--brand-primary);
+    margin-top: 4px;
+    flex-shrink: 0;
+}
+
+.notification-dot.unread {
+    background: var(--brand-primary);
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+.notification-body {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    text-align: left;
+}
+
+.notification-body strong {
+    font-size: 12px;
+    color: var(--text-main);
+}
+
+.notification-body span {
+    font-size: 11px;
+    color: var(--text-muted);
+    line-height: 1.4;
+}
+
+
 /* Dashboard Content Area */
 .content-area {
     padding: 32px;

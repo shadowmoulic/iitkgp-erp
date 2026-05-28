@@ -148,6 +148,23 @@
             font-size: 16px;
         }
 
+        .toggle-password {
+            position: absolute;
+            right: 16px;
+            left: auto !important;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            font-size: 16px;
+            cursor: pointer;
+            transition: var(--transition-fast);
+            z-index: 10;
+        }
+
+        .toggle-password:hover {
+            color: var(--brand-primary);
+        }
+
         .input-wrapper {
             position: relative;
             width: 100%;
@@ -280,7 +297,8 @@
                     <label>Password</label>
                     <div class="input-wrapper">
                         <i class="fa-solid fa-lock"></i>
-                        <input type="password" id="pwd" placeholder="Enter your password">
+                        <input type="password" id="pwd" placeholder="Enter your password" style="padding-right: 44px;">
+                        <i class="fa-solid fa-eye toggle-password" id="togglePasswordBtn"></i>
                     </div>
                 </div>
 
@@ -318,11 +336,28 @@
 
             if (roll === '25PH10007' && pwd === 'Sayak@KGP#123' && ans === 'shiro') {
                 // Successful Login! Redirect to Dashboard
-                window.location.href = 'dashboard/index.html';
+                window.location.href = 'dashboard/';
             } else {
                 // Failed Login
                 errorToast.classList.add('active');
             }
+        }
+
+        // Toggle Password Visibility
+        const togglePasswordBtn = document.getElementById('togglePasswordBtn');
+        const pwdInput = document.getElementById('pwd');
+        if (togglePasswordBtn && pwdInput) {
+            togglePasswordBtn.addEventListener('click', () => {
+                if (pwdInput.type === 'password') {
+                    pwdInput.type = 'text';
+                    togglePasswordBtn.classList.remove('fa-eye');
+                    togglePasswordBtn.classList.add('fa-eye-slash');
+                } else {
+                    pwdInput.type = 'password';
+                    togglePasswordBtn.classList.remove('fa-eye-slash');
+                    togglePasswordBtn.classList.add('fa-eye');
+                }
+            });
         }
     </script>
 </body>

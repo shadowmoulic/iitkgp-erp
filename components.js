@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
         sidebarPlaceholder.outerHTML = `
         <aside class="sidebar">
             <div class="sidebar-header">
-                <a href="${pathPrefix}dashboard/index.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 10px;">
+                <a href="${pathPrefix}dashboard/" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 10px;">
                     <img src="${pathPrefix}iitkgp logo.png" alt="IIT KGP Logo" class="sidebar-logo">
                     <h2>IITKGP ERP</h2>
                 </a>
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
             
             <nav class="sidebar-menu">
-                <a href="${pathPrefix}dashboard/index.html" class="menu-item ${isDashboard ? 'active' : ''}">
+                <a href="${pathPrefix}dashboard/" class="menu-item ${isDashboard ? 'active' : ''}">
                     <i class="fa-solid fa-house"></i>
                     <span>Dashboard</span>
                 </a>
@@ -64,33 +64,33 @@ document.addEventListener('DOMContentLoaded', () => {
                     
                     <div class="accordion-content">
                         <div class="submenu-category">Registration & Academics</div>
-                        <a href="${pathPrefix}academic/index.html" class="submenu-item">Subjects & Curricula</a>
-                        <a href="${pathPrefix}academic/index.html" class="submenu-item">UG Registration & Flow</a>
-                        <a href="${pathPrefix}academic/index.html" class="submenu-item">PG Modules</a>
-                        <a href="${pathPrefix}academic/index.html" class="submenu-item">Final Graduation Processing</a>
+                        <a href="${pathPrefix}academic/" class="submenu-item">Subjects & Curricula</a>
+                        <a href="${pathPrefix}academic/" class="submenu-item">UG Registration & Flow</a>
+                        <a href="${pathPrefix}academic/" class="submenu-item">PG Modules</a>
+                        <a href="${pathPrefix}academic/" class="submenu-item">Final Graduation Processing</a>
 
                         <div class="submenu-category">Time Table & Exams</div>
-                        <a href="${pathPrefix}academic/index.html" class="submenu-item">Examination TimeTable</a>
-                        <a href="${pathPrefix}academic/index.html" class="submenu-item">Time Table (Classes)</a>
-                        <a href="${pathPrefix}academic/index.html" class="submenu-item">Results Review</a>
+                        <a href="${pathPrefix}academic/" class="submenu-item">Examination TimeTable</a>
+                        <a href="${pathPrefix}academic/" class="submenu-item">Time Table (Classes)</a>
+                        <a href="${pathPrefix}academic/" class="submenu-item">Results Review</a>
 
                         <div class="submenu-category">Financials & Awards</div>
-                        <a href="${pathPrefix}academic/index.html" class="submenu-item">Fees Payment & Status</a>
-                        <a href="${pathPrefix}academic/index.html" class="submenu-item">Scholarship</a>
-                        <a href="${pathPrefix}academic/index.html" class="submenu-item">Mediclaim</a>
-                        <a href="${pathPrefix}academic/index.html" class="submenu-item">Award and Prize (UG)</a>
+                        <a href="${pathPrefix}academic/" class="submenu-item">Fees Payment & Status</a>
+                        <a href="${pathPrefix}academic/" class="submenu-item">Scholarship</a>
+                        <a href="${pathPrefix}academic/" class="submenu-item">Mediclaim</a>
+                        <a href="${pathPrefix}academic/" class="submenu-item">Award and Prize (UG)</a>
                     </div>
                 </div>
 
-                <a href="${pathPrefix}accounts/index.html" class="menu-item ${isAccounts ? 'active' : ''}">
+                <a href="${pathPrefix}accounts/" class="menu-item ${isAccounts ? 'active' : ''}">
                     <i class="fa-solid fa-file-invoice-dollar"></i>
                     <span>Accounts</span>
                 </a>
-                <a href="${pathPrefix}accommodation/index.html" class="menu-item ${isAccommodation ? 'active' : ''}">
+                <a href="${pathPrefix}accommodation/" class="menu-item ${isAccommodation ? 'active' : ''}">
                     <i class="fa-solid fa-hotel"></i>
                     <span>Guest House</span>
                 </a>
-                <a href="${pathPrefix}cdc/index.html" class="menu-item ${isCdc ? 'active' : ''}">
+                <a href="${pathPrefix}cdc/" class="menu-item ${isCdc ? 'active' : ''}">
                     <i class="fa-solid fa-briefcase"></i>
                     <span>CDC</span>
                 </a>
@@ -106,11 +106,17 @@ document.addEventListener('DOMContentLoaded', () => {
         topnavPlaceholder.outerHTML = `
         <header class="top-nav">
             <div style="display: flex; align-items: center;">
+                <button class="back-btn" id="goBackBtn" aria-label="Go back">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
                 <button class="menu-btn" id="openSidebar" aria-label="Open sidebar">
                     <i class="fa-solid fa-bars"></i>
                 </button>
-                <div class="search-box" style="position: relative;">
-                    <i class="fa-solid fa-search"></i>
+                <div class="search-box" id="globalSearchBox" style="position: relative;">
+                    <button class="search-mobile-close" id="closeMobileSearch" aria-label="Close search">
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </button>
+                    <i class="fa-solid fa-search" id="searchIconTrigger"></i>
                     <input type="text" id="globalSearchInput" placeholder="${searchPlaceholder}" autocomplete="off">
                     <div class="search-results-dropdown" id="globalSearchResults"></div>
                 </div>
@@ -412,6 +418,116 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 4. Attach Global JS Bindings
     setTimeout(() => {
+        // Back Button Logic (Visible on both desktop and mobile for subpages)
+        const goBackBtn = document.getElementById('goBackBtn');
+        if (goBackBtn) {
+            const isLoginPage = path.endsWith('/index.html') && !path.includes('/academic/') && !path.includes('/accommodation/') && !path.includes('/accounts/') && !path.includes('/cdc/');
+            const isDashboardPage = path.includes('/dashboard/');
+            const showBackButton = !isLoginPage && !isDashboardPage;
+
+            if (showBackButton) {
+                goBackBtn.classList.add('visible');
+                goBackBtn.addEventListener('click', () => {
+                    if (document.referrer && document.referrer.includes(window.location.host)) {
+                        window.history.back();
+                    } else {
+                        window.location.href = pathPrefix + 'dashboard/';
+                    }
+                });
+            }
+        }
+
+        // Mobile Search Toggle Logic
+        const searchBox = document.getElementById('globalSearchBox');
+        const searchInput = document.getElementById('globalSearchInput');
+        const searchResults = document.getElementById('globalSearchResults');
+        const closeMobileSearch = document.getElementById('closeMobileSearch');
+        
+        if (searchBox && searchInput) {
+            // When clicking on collapsed search box on mobile
+            searchBox.addEventListener('click', (e) => {
+                if (window.innerWidth <= 600 && !searchBox.classList.contains('mobile-active')) {
+                    searchBox.classList.add('mobile-active');
+                    searchInput.focus();
+                    e.stopPropagation();
+                }
+            });
+            
+            // When clicking close button on mobile search
+            if (closeMobileSearch) {
+                closeMobileSearch.addEventListener('click', (e) => {
+                    searchBox.classList.remove('mobile-active');
+                    searchInput.value = '';
+                    if (searchResults) {
+                        searchResults.innerHTML = '';
+                        searchResults.classList.remove('active');
+                    }
+                    e.stopPropagation();
+                });
+            }
+        }
+
+        // Intercept (i) button / masonry links with href="#" clicks to show a rich modal description
+        const menuDescriptions = {
+            "Subjects & Curricula": "View full details on academic curricula, syllabus structures, minor/breadth choices, and course catalogs across departments.",
+            "UG Registration & Flow": "Access the undergraduate academic registration flow, promotion rules, and step-by-step pre-registration checklist.",
+            "PG Modules": "Postgraduate research and course module information, coordinator contact details, and dissertation guidelines.",
+            "Final Graduation Processing": "Check status of graduation clearance, degree certificates application, convocation registration, and hall clearances.",
+            "Upload GATE Score": "Upload official GATE scorecard credentials for verify-and-match validation during postgraduate enrollment.",
+            "Medical Leave": "Submit medical certificates and documents verified by BCR Technology Hospital to apply for official leave of absence.",
+            "Interim Grade Card & Certificates": "Request certified interim grade sheets, transfer certificates, migration certificates, or backlog documentation.",
+            "Micro Credit Registration": "Register for short-term micro-credit courses offered by visiting international faculty and industry experts.",
+            "Examination TimeTable": "View scheduled slots, room assignments, departmental seat bookings, and examiner details for mid/end-semester exams.",
+            "Time Table (Classes)": "Access your customized class schedule, lecture slots, tutorial rooms, and lab batches for the current semester.",
+            "Results Review": "Submit requests for grade reviews, script rechecks, or marking clarifications for published semester results.",
+            "Important Instructions": "Review the code of conduct, mandatory identity documents, and reporting times for physical examination halls.",
+            "Fees Payment & Status": "Track online academic fee payments, check pending dues, download receipts, and apply for fee payment certificates.",
+            "Scholarship": "Apply for MCM (Merit-cum-Means) scholarships, check private donor endowments, and submit income declarations.",
+            "Mediclaim": "Access student medical insurance details, claim forms, policy documents, and cash-less hospital networks info.",
+            "Award and Prize (UG)": "Check qualifications and lists of institute silver/gold medals, endowment prizes, and distinguished alumni awards."
+        };
+
+        function showInfoModal(titleText) {
+            const cleanTitle = titleText.replace(/\s*<i.*$/i, '').replace(/[\r\n\t]+/g, ' ').replace(/\s+/g, ' ').trim();
+            let desc = menuDescriptions[cleanTitle];
+            if (!desc) {
+                const key = Object.keys(menuDescriptions).find(k => cleanTitle.toLowerCase().includes(k.toLowerCase()) || k.toLowerCase().includes(cleanTitle.toLowerCase()));
+                desc = key ? menuDescriptions[key] : `Detailed information and tools for ${cleanTitle} are currently offline. Please contact the academic section for official records.`;
+            }
+
+            const msgTitle = document.getElementById('readMessageTitle');
+            const msgSender = document.getElementById('readMessageSender');
+            const msgBody = document.getElementById('readMessageBody');
+            const messageModal = document.getElementById('modalReadMessage');
+
+            if (msgTitle) msgTitle.innerText = cleanTitle;
+            if (msgSender) msgSender.innerText = "ERP Academic Portal Information";
+            if (msgBody) msgBody.innerText = desc;
+
+            if (messageModal) {
+                messageModal.classList.add('open');
+            }
+        }
+
+        // Global interceptor for info icon/link clicks to prevent page jumping to top
+        document.addEventListener('click', (e) => {
+            const infoIcon = e.target.closest('.fa-circle-info');
+            const masonryLink = e.target.closest('.masonry-link');
+            
+            if (infoIcon) {
+                const link = infoIcon.closest('a');
+                if (link && link.getAttribute('href') === '#') {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    showInfoModal(link.textContent.trim());
+                }
+            } else if (masonryLink && masonryLink.getAttribute('href') === '#') {
+                e.preventDefault();
+                e.stopPropagation();
+                showInfoModal(masonryLink.textContent.trim());
+            }
+        });
+
         // Dropdown toggles
         const profileMenu = document.getElementById('profileMenu');
         const profileBtn = document.getElementById('profileBtn');
@@ -588,19 +704,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Global Search Logic
-        const searchInput = document.getElementById('globalSearchInput');
-        const searchResults = document.getElementById('globalSearchResults');
-
         if (searchInput && searchResults) {
             const pages = [
-                { title: 'Dashboard', url: 'dashboard/index.html', desc: 'Main ERP home page' },
+                { title: 'Dashboard', url: 'dashboard/', desc: 'Main ERP home page' },
                 { title: 'Academic Information', url: 'academic/academic-information/', desc: 'Student profile and documents' },
                 { title: 'Performance Record', url: 'academic/performance/', desc: 'Semester grades and curricula' },
-                { title: 'Registration & Academics', url: 'academic/index.html', desc: 'UG/PG Modules and Time Table' },
+                { title: 'Registration & Academics', url: 'academic/', desc: 'UG/PG Modules and Time Table' },
                 { title: 'Guest House Booking', url: 'accommodation/guest-house.html', desc: 'Search availability and book rooms' },
-                { title: 'Accommodation Dashboard', url: 'accommodation/index.html', desc: 'Guest house portal home' },
-                { title: 'Accounts & Payments', url: 'accounts/index.html', desc: 'Pay fees and view dues' },
-                { title: 'CDC Placement', url: 'cdc/index.html', desc: 'Career Development Centre portal' }
+                { title: 'Accommodation Dashboard', url: 'accommodation/', desc: 'Guest house portal home' },
+                { title: 'Accounts & Payments', url: 'accounts/', desc: 'Pay fees and view dues' },
+                { title: 'CDC Placement', url: 'cdc/', desc: 'Career Development Centre portal' }
             ];
 
             searchInput.addEventListener('input', (e) => {
